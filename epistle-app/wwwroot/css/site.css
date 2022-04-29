@@ -1,18 +1,43 @@
-html {
-  font-size: 14px;
+html, body, main {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.wrapper {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 18% 22% 60%;
+    grid-auto-rows: minmax(100px, auto);
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+#sidenav {
+    grid-column: 1;
+    grid-row: 1;
+    overflow-y: scroll;
+    background-color: black;
 }
 
-body {
-  margin-bottom: 60px;
+#notes {
+    grid-column: 2;
+    grid-row: 1;
+    overflow-y: scroll;
+    background-color: black;
 }
+
+#editor {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+textarea {
+    height: 100%;
+    width: 100%;
+    border: none;
+    padding: 1em;
+    overflow-y: scroll;
+}
+
+    textarea:focus {
+        outline: none;
+    }
