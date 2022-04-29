@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>epistle_app</RootNamespace>
+    <ApplicationIcon>wwwroot\epistle.ico</ApplicationIcon>
   </PropertyGroup>
 
 </Project>
