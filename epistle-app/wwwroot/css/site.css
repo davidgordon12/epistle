@@ -7,15 +7,16 @@
     --text: aliceblue;
 
     /*SIZES*/
-    --sidenav: 18%;
-    --notelist: 22%;
-    --editor: 60%;
+    --sidenav: 200px;
+    --notelist: 300px;
+    --editor: 100%;
 }
 
 html, body, main {
   margin: 0;
   height: 100%;
   overflow: hidden;
+  background-color: var(--secondary)
 }
 
 .wrapper {
@@ -35,9 +36,13 @@ html, body, main {
     div#editor {
         grid-column: 2 span;
     }
+
+    input#search {
+        width: 150px;
+    }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 900px) {
     div#sidenav {
         display: none;
     }
@@ -48,7 +53,10 @@ html, body, main {
 
     div#editor {
         grid-column: 3 span;
+        width: 102vw;
     }
+
+    
 }
 
 /* SIDENAV */
@@ -103,6 +111,28 @@ ul {
 #searchbar {
     height: 12%;
     background-color: var(--secondary-accent);
+}
+
+#search {
+    border: none;
+    border-radius: 15px;
+    padding: 2px 15px 2px 15px;
+}
+
+    #search:focus {
+        outline:none;
+    }
+
+/* EDITOR */
+
+#editor {
+    margin-right: 480px;
+    padding-right: 15px
+}
+
+#toolbar {
+    height: 6%;
+    background-color: var(--primary-accent);
 }
 
 textarea {
