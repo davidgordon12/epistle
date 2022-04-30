@@ -1,3 +1,17 @@
+:root {
+    /* COLORS */
+    --primary: #262626;
+    --secondary: #2d2d2d;
+    --primary-accent: #1d1d1d;
+    --secondary-accent: #353635;
+    --text: aliceblue;
+
+    /*SIZES*/
+    --sidenav: 18%;
+    --notelist: 22%;
+    --editor: 60%;
+}
+
 html, body, main {
   margin: 0;
   height: 100%;
@@ -7,27 +21,63 @@ html, body, main {
 .wrapper {
     height: 100%;
     display: grid;
-    grid-template-columns: 18% 22% 60%;
+    grid-template-columns: var(--sidenav) var(--notelist) var(--editor);
     grid-auto-rows: minmax(100px, auto);
 }
 
+
+/* SIDENAV */
 #sidenav {
     grid-column: 1;
     grid-row: 1;
-    overflow-y: scroll;
-    background-color: black;
+    overflow: scroll;
+    background-color: var(--primary);
+    scrollbar-width: none;
 }
 
-#notes {
+    #sidenav::-webkit-scrollbar {
+        display: none;
+    }
+
+#head {
+    position: absolute;
+    top: 0;
+    height: 12%;
+    width: var(--sidenav);
+    background-color: var(--primary-accent);
+}
+
+#badge {
+    position: absolute;
+    bottom: 0;
+    height: 12%;
+    width: var(--sidenav);
+    background-color: var(--primary-accent);
+}
+
+
+/* NOTELIST */
+#notelist {
     grid-column: 2;
     grid-row: 1;
     overflow-y: scroll;
-    background-color: black;
+    background-color: var(--secondary);
+    scrollbar-width: none;
 }
 
-#editor {
-    grid-column: 3;
-    grid-row: 1;
+    #notelist::-webkit-scrollbar {
+        display: none;
+    }
+
+
+ul {
+    position: absolute;
+    height: 100%;
+}
+
+#searchbar {
+    height: 12%;
+    background-color: var(--secondary-accent);
 }
 
 textarea {
@@ -36,8 +86,16 @@ textarea {
     border: none;
     padding: 1em;
     overflow-y: scroll;
+    background-color: var(--primary);
+    color: var(--text);
+    resize: none;
+    scrollbar-width: none;
 }
 
     textarea:focus {
         outline: none;
+    }
+
+    textarea::-webkit-scrollbar {
+        display: none;
     }
