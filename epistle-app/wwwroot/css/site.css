@@ -1,11 +1,10 @@
 :root {
     /* COLORS */
-    --primary: #262626;
-    --secondary: #2d2d2d;
-    --primary-accent: #1d1d1d;
+    --primary: #2A2A2A;
+    --secondary: #3D3E3D;
+    --primary-accent: #1F1F1F;
     --secondary-accent: #353635;
     --text: aliceblue;
-
     /*SIZES*/
     --sidenav: 200px;
     --notelist: 300px;
@@ -26,13 +25,140 @@ html, body, main {
     grid-auto-rows: minmax(100px, auto);
 }
 
+
+/* SIDENAV */
+#sidenav {
+    grid-column: 1;
+    grid-row: 1;
+    overflow: scroll;
+    background-color: var(--primary);
+    scrollbar-width: none;
+}
+
+    #sidenav::-webkit-scrollbar {
+        display: none;
+    }
+
+#head {
+    position: absolute;
+    top: 0;
+    height: 80px;
+    width: var(--sidenav);
+    background-color: var(--primary-accent);
+}
+
+#badge {
+    position: absolute;
+    bottom: 0;
+    height: 80px;
+    width: var(--sidenav);
+    background-color: var(--primary-accent);
+}
+
+
+/* NOTELIST */
+#notelist {
+    grid-column: 2;
+    grid-row: 1;
+    overflow-y: scroll;
+    background-color: var(--secondary);
+    scrollbar-width: none;
+}
+
+    #notelist::-webkit-scrollbar {
+        display: none;
+    }
+
+#notelist_icons {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 20px;
+}
+
+h6 {
+    font-size: larger;
+    color: var(--text);
+}
+
+button {
+    color: var(--text);
+    border: none;
+    background: none;
+}
+
+#searchbar {
+    height: 80px;
+    background-color: var(--secondary-accent);
+}
+
+#search {
+    border: none;
+    border-radius: 15px;
+    padding: 2px 15px 2px 15px;
+    background-color: #242424;
+    margin-left: 35px;
+    margin-top: 5px;
+    color: var(--text);
+}
+
+    #search:focus {
+        outline:none;
+    }
+
+
+/* EDITOR */
+#editor {
+    margin-right: 480px;
+    padding-right: 15px
+}
+
+#toolbar {
+    height: 40px;
+    background-color: var(--primary-accent);
+    margin: 0 auto;
+}
+
+#toolbar_items {
+    display: flex;
+    justify-content: center;
+}
+
+.toolbar_button {
+    margin-inline: 3%;
+}
+
+textarea {
+    height: 100%;
+    width: 100%;
+    border: none;
+    padding: 1em;
+    overflow-y: scroll;
+    background-color: var(--primary);
+    color: var(--text);
+    resize: none;
+    scrollbar-width: none;
+}
+
+    textarea:focus {
+        outline: none;
+    }
+
+    textarea::-webkit-scrollbar {
+        display: none;
+    }
+
+
+/* LAYOUT */
 @media screen and (max-width: 1200px) {
     div#sidenav {
         display: none;
     }
-    div#notelist{
+
+    div#notelist {
         grid-column: 1;
     }
+
     div#editor {
         grid-column: 2 span;
     }
@@ -55,102 +181,4 @@ html, body, main {
         grid-column: 3 span;
         width: 102vw;
     }
-
-    
 }
-
-/* SIDENAV */
-#sidenav {
-    grid-column: 1;
-    grid-row: 1;
-    overflow: scroll;
-    background-color: var(--primary);
-    scrollbar-width: none;
-}
-
-    #sidenav::-webkit-scrollbar {
-        display: none;
-    }
-
-#head {
-    position: absolute;
-    top: 0;
-    height: 12%;
-    width: var(--sidenav);
-    background-color: var(--primary-accent);
-}
-
-#badge {
-    position: absolute;
-    bottom: 0;
-    height: 12%;
-    width: var(--sidenav);
-    background-color: var(--primary-accent);
-}
-
-
-/* NOTELIST */
-#notelist {
-    grid-column: 2;
-    grid-row: 1;
-    overflow-y: scroll;
-    background-color: var(--secondary);
-    scrollbar-width: none;
-}
-
-    #notelist::-webkit-scrollbar {
-        display: none;
-    }
-
-
-ul {
-    position: absolute;
-    height: 100%;
-}
-
-#searchbar {
-    height: 12%;
-    background-color: var(--secondary-accent);
-}
-
-#search {
-    border: none;
-    border-radius: 15px;
-    padding: 2px 15px 2px 15px;
-}
-
-    #search:focus {
-        outline:none;
-    }
-
-/* EDITOR */
-
-#editor {
-    margin-right: 480px;
-    padding-right: 15px
-}
-
-#toolbar {
-    height: 6%;
-    background-color: var(--primary-accent);
-}
-
-textarea {
-    height: 100%;
-    width: 100%;
-    border: none;
-    padding: 1em;
-    overflow-y: scroll;
-    background-color: var(--primary);
-    color: var(--text);
-    resize: none;
-    scrollbar-width: none;
-}
-
-    textarea:focus {
-        outline: none;
-    }
-
-    textarea::-webkit-scrollbar {
-        display: none;
-    }
