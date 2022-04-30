@@ -25,6 +25,31 @@ html, body, main {
     grid-auto-rows: minmax(100px, auto);
 }
 
+@media screen and (max-width: 1200px) {
+    div#sidenav {
+        display: none;
+    }
+    div#notelist{
+        grid-column: 1;
+    }
+    div#editor {
+        grid-column: 2 span;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    div#sidenav {
+        display: none;
+    }
+
+    div#notelist {
+        display: none;
+    }
+
+    div#editor {
+        grid-column: 3 span;
+    }
+}
 
 /* SIDENAV */
 #sidenav {
