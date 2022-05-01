@@ -1,4 +1,4 @@
-﻿<div class="wrapper">
+﻿<form class="wrapper">
     <div id="sidenav">
         <div id="head"></div>
         <div id="badge"></div>
@@ -6,9 +6,9 @@
     <div id="notelist">
         <div id="searchbar">
             <div id="notelist_icons">
-                <button>SORT</button>
+                <div onclick="" class="notelist_button">SORT</div>
                 <h6>All Notes</h6>
-                <button>NEW</button>
+                <div onclick="" class="notelist_button">NEW</div>
             </div>
             <input type="text" id="search" placeholder="Type to search..." />
         </div>
@@ -18,13 +18,12 @@
     <div id="editor">
         <div id="toolbar">
             <div id="toolbar_items">
-                <button class="toolbar_button">THEME</button>
-                <button class="toolbar_button">COLOR</button>
-                <button class="toolbar_button">FONT</button>
-                <button class="toolbar_button">IMAGE</button>
-                <button class="toolbar_button">SAVE</button>
+                <div onclick="toolbar_click()" class="toolbar_button">THEME</div>
+                <div onclick="toolbar_click()" class="toolbar_button">IMAGE</div>
+                <div onclick="toolbar_click()" class="toolbar_button">TEXT</div>
+                <button type="submit" class="toolbar_button">SAVE</button>
             </div>
         </div>
         <textarea spellcheck="false"></textarea>
     </div>
-</div>
+</form>

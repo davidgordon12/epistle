@@ -81,12 +81,6 @@ h6 {
     color: var(--text);
 }
 
-button {
-    color: var(--text);
-    border: none;
-    background: none;
-}
-
 #searchbar {
     height: 80px;
     background-color: var(--secondary-accent);
@@ -126,6 +120,7 @@ button {
 
 .toolbar_button {
     margin-inline: 3%;
+    color: var(--text);
 }
 
 textarea {
