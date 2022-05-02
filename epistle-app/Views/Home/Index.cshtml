@@ -1,4 +1,5 @@
-﻿@model EpistleLibrary.Models.NoteModel
+﻿@using EpistleLibrary.Services
+@model EpistleLibrary.Models.NoteModel
 
 <form class="wrapper" asp-action="Index">
     <div id="sidenav">
@@ -7,7 +8,7 @@
         </div>
         <div id="badge">
             <h6 id="username">David Gordon</h6>
-            <h6 id="note_count">Total Notes: 11</h6>
+            <h6 id="note_count">Total Notes: @NoteService.GetNoteCount()</h6>
         </div>
     </div>
     <div id="notelist">
@@ -20,7 +21,7 @@
             <input type="text" id="search" placeholder="Type to search..." />
         </div>
         <div id="notes"> <!-- Get all the user's notes-->
-            @foreach(var note in EpistleLibrary.Services.NoteService.GetNotes())
+            @foreach(var note in NoteService.GetNotes())
             {
                 <h6>HI</h6>
             }
