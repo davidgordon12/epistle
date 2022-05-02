@@ -1,4 +1,5 @@
 ﻿using epistle_app.Models;
+using EpistleLibrary.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,19 +7,13 @@ namespace epistle_app.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
+        public IActionResult Index(List<NoteModel> notes)
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult Index(NoteModel note)
         {
             return View();
         }
