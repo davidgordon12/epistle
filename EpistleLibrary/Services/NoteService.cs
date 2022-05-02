@@ -15,5 +15,10 @@ namespace EpistleLibrary.Services
         {
 
         }
+
+        public static int GetNoteCount()
+        {
+            return 0;
+        }
     }
 }
