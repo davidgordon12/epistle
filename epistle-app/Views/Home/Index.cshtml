@@ -1,7 +1,14 @@
-﻿<form class="wrapper">
+﻿@model EpistleLibrary.Models.NoteModel
+
+<form class="wrapper" asp-action="Index">
     <div id="sidenav">
-        <div id="head"></div>
-        <div id="badge"></div>
+        <div id="head">
+            <h6 id="title">Epistle</h6>
+        </div>
+        <div id="badge">
+            <h6 id="username">David Gordon</h6>
+            <h6 id="note_count">Total Notes: 11</h6>
+        </div>
     </div>
     <div id="notelist">
         <div id="searchbar">
@@ -18,12 +25,9 @@
     <div id="editor">
         <div id="toolbar">
             <div id="toolbar_items">
-                <div onclick="toolbar_click()" class="toolbar_button">THEME</div>
-                <div onclick="toolbar_click()" class="toolbar_button">IMAGE</div>
-                <div onclick="toolbar_click()" class="toolbar_button">TEXT</div>
                 <button type="submit" class="toolbar_button">SAVE</button>
             </div>
         </div>
-        <textarea spellcheck="false"></textarea>
+        <textarea asp-for="Content" spellcheck="false" placeholder="Start your note here..."></textarea>
     </div>
 </form>
