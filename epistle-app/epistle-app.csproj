@@ -8,4 +8,8 @@
     <ApplicationIcon>wwwroot\epistle.ico</ApplicationIcon>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EpistleLibrary\EpistleLibrary.csproj" />
+  </ItemGroup>
+
 </Project>
