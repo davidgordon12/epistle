@@ -47,14 +47,33 @@ html, body, main {
     background-color: var(--primary-accent);
 }
 
+#title {
+    font-size: xx-large;
+    margin-top: 15px;
+    margin-left: 5px;
+    color: var(--text);
+}
+
 #badge {
     position: absolute;
     bottom: 0;
     height: 80px;
     width: var(--sidenav);
     background-color: var(--primary-accent);
+    text-align: center;
 }
 
+#username {
+    margin-top: 10px;
+    font-size: large;
+    color: var(--text);
+}
+
+#note_count {
+    font-size: medium;
+    color: var(--text);
+    opacity: 60%;
+}
 
 /* NOTELIST */
 #notelist {
