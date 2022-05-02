@@ -2,6 +2,7 @@
 using EpistleLibrary.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using static EpistleLibrary.Services.NoteService;
 
 namespace epistle_app.Controllers
 {
@@ -15,7 +16,12 @@ namespace epistle_app.Controllers
         [HttpPost]
         public IActionResult Index(NoteModel note)
         {
-            return View();
+            // note title is just the first word, neccessary for sorting purposes
+            note.Title = note.Content.Split(' ')[0];
+
+            AddNote(note);
+
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
