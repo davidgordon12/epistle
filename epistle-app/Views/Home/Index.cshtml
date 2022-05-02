@@ -19,7 +19,11 @@
             </div>
             <input type="text" id="search" placeholder="Type to search..." />
         </div>
-        <div id="notes">
+        <div id="notes"> <!-- Get all the user's notes-->
+            @foreach(var note in EpistleLibrary.Services.NoteService.GetNotes())
+            {
+                <h6>HI</h6>
+            }
         </div>
     </div>
     <div id="editor">
