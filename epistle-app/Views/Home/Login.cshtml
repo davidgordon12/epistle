@@ -1,0 +1,41 @@
+﻿@model _UserModel
+
+<div id="container">
+
+    <div>
+        <form id="create_form" method="post" asp-controller="Home" asp-action="Create">
+            <label asp-for="Username"></label>
+            <input id="create_field" asp-for="Username" />
+            <span asp-validation-for=Username class="text-danger"></span>
+
+            <label asp-for="Email"></label>
+            <input id="create_field" asp-for="Email" />
+            <span asp-validation-for=Email class="text-danger"></span>
+
+            <label asp-for="Password"></label>
+            <input id="create_field" type="password" asp-for="Password" />
+            <span asp-validation-for=Password class="text-danger"></span>
+
+            <label asp-for="ConfirmPassword"></label>
+            <input id="create_field" type="password" asp-for="ConfirmPassword" />
+            <span asp-validation-for=ConfirmPassword class="text-danger"></span>
+
+            <input id="create_button" type="submit" value="Create" />
+        </form>
+    </div>
+
+    <div>
+        <form id="login_form" method="post" asp-controller="Home" asp-action="Login">
+            <span class="text-danger">@ViewBag.LoginError</span>
+
+            <label asp-for="Username"></label>
+            <input id="login_field" asp-for="Username" />
+
+            <label asp-for="Password"></label>
+            <input id="login_field" type="password" asp-for="Password" />
+
+            <input id="login_button" type="submit" value="Login" />
+        </form>
+    </div>
+
+</div>

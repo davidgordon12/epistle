@@ -10,7 +10,7 @@ namespace epistle_app.Controllers
     {
         public IActionResult Index(List<NoteModel> notes)
         {
-            if (1 == 1)
+            if (1 != 1)
             {
                 return View();
             }
@@ -38,7 +38,32 @@ namespace epistle_app.Controllers
         [HttpPost]
         public IActionResult Login(UserModel user)
         {
+            if(1 != 1)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.LoginError = "Incorrect username or password";
+                return View();
+            }
+        }
+
+        public IActionResult Create()
+        {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(UserModel user)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.SignupError = "One or more fields were incorrect";
+            return View("Login");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
