@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "epistle-app", "epistle-app\epistle-app.csproj", "{CE4B1407-D50D-4899-BDDA-EC3D707D883D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpistleLibrary", "EpistleLibrary\EpistleLibrary.csproj", "{26E3A1D9-2283-4506-A246-6FF06286335C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EpistleLibrary", "EpistleLibrary\EpistleLibrary.csproj", "{26E3A1D9-2283-4506-A246-6FF06286335C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

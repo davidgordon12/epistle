@@ -36,17 +36,13 @@ namespace epistle_app.Controllers
         }
 
         [HttpPost]
+        [AutoValidateAntiforgeryToken]
         public IActionResult Login(UserModel user)
         {
-            if(1 != 1)
-            {
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                ViewBag.LoginError = "Incorrect username or password";
-                return View();
-            }
+            ViewBag.LoginError = "Incorrect Username or Password";
+
+            return View();
+
         }
 
         public IActionResult Create()
@@ -55,14 +51,9 @@ namespace epistle_app.Controllers
         }
 
         [HttpPost]
+        [AutoValidateAntiforgeryToken]
         public IActionResult Create(UserModel user)
         {
-            if (ModelState.IsValid)
-            {
-                return RedirectToAction("Index");
-            }
-
-            ViewBag.SignupError = "One or more fields were incorrect";
             return View("Login");
         }
 
