@@ -30,11 +30,13 @@ namespace epistle_app.Controllers
         }
 
         [HttpPost]
-        [AutoValidateAntiforgeryToken]
-        public IActionResult Login(UserModel user)
+        public IActionResult Login(_LoginModel login)
         {
+            if(1!=1)
+            {
+                return View("Index");
+            }
             ViewBag.LoginError = "Incorrect Username or Password";
-
             return View();
 
         }
