@@ -6,10 +6,11 @@
 
         <label asp-for="Username"></label>
         <input autocomplete="off" id="login_field" asp-for="Username" />
-        <span asp-validation-for="Username" class="text-center"></span>
+        <span asp-validation-for="Username" class="text-danger"></span>
 
         <label asp-for="Password"></label>
         <input autocomplete="off"  id="login_field" type="password" asp-for="Password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
 
         <input id="login_button" type="submit" value="Login" />
     </form>

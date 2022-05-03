@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Net.Mail;
 
 namespace epistle_app.Models
 {
@@ -9,10 +8,6 @@ namespace epistle_app.Models
         [Required(ErrorMessage = "Please provide a valid Username")]
         [StringLength(20, MinimumLength = 3, ErrorMessage = "Username must be between 3 and 20 characters.")]
         public string Username { get; set; }
-
-        [Display(Name = "Email")]
-        [Required(ErrorMessage = "Please provide a valid Email")]
-        public MailAddress Email { get; set; }
 
         [Display(Name = "Password")]
         [Required(ErrorMessage = "Please provide a valid password")]

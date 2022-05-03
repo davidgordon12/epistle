@@ -10,13 +10,7 @@ namespace epistle_app.Controllers
     {
         public IActionResult Index(List<NoteModel> notes)
         {
-            if (1 != 1)
-            {
-                return View();
-            }
-
-            return RedirectToAction("Login");
-
+            return View("Login");
         }
 
         [HttpPost]
