@@ -10,7 +10,13 @@ namespace epistle_app.Controllers
     {
         public IActionResult Index(List<NoteModel> notes)
         {
-            return View();
+            if (1 == 1)
+            {
+                return View();
+            }
+
+            return RedirectToAction("Login");
+
         }
 
         [HttpPost]
@@ -22,6 +28,17 @@ namespace epistle_app.Controllers
             AddNote(note);
 
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(UserModel user)
+        {
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
