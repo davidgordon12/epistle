@@ -2,9 +2,9 @@
 {
     public class UserService
     {
-        public void LogIn()
+        public static bool LogIn()
         {
-
+            return false;
         }
 
         public void LogOut()
@@ -15,6 +15,16 @@
         public static string GetUser()
         {
             return "David Gordon";
+        }
+
+        public static bool CreateUser()
+        {
+            return true;
+        }
+
+        public static bool DeleteUser()
+        {
+            return true;
         }
     }
 }
