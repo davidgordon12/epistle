@@ -6,7 +6,7 @@ namespace EpistleLibrary.Models
     {
         [Key]
         public string Username { get; set; }
-        public int Password { get; set; }
+        public string Password { get; set; }
         public List<NoteModel>? Notes { get; set; }
     }
 }
