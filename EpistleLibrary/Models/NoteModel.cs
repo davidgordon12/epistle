@@ -7,7 +7,6 @@
         public DateTime DateCreated { get; set; } = DateTime.Now;
         public string Content { get; set; }
 
-        public string Username { get; set; }
         public UserModel User { get; set; }
     }
 }
