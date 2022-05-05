@@ -1,4 +1,6 @@
-﻿using EpistleLibrary.Models;
+﻿using EpistleLibrary.Data;
+using EpistleLibrary.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EpistleLibrary.Services
 {
@@ -13,7 +15,14 @@ namespace EpistleLibrary.Services
 
         public static void AddNote(NoteModel note)
         {
+            using(EpistleContext context = new())
+            {
+                context.Entry(note).State = EntityState.Unchanged;
 
+                context.Notes.Add(note);
+
+                context.SaveChanges();
+            }
         }
 
         public static int GetNoteCount()
