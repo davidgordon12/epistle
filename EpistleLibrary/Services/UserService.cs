@@ -2,16 +2,6 @@
 {
     public class UserService
     {
-        public static bool LogIn()
-        {
-            return false;
-        }
-
-        public void LogOut()
-        {
-
-        }
-
         public static string GetUser()
         {
             return "David Gordon";
