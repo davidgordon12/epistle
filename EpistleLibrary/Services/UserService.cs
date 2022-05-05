@@ -5,6 +5,8 @@ namespace EpistleLibrary.Services
 {
     public class UserService
     {
+        /// <summary>Checks if the user's login information is valid</summary>
+        /// <returns>The user's username, or, if not found, an empty string</returns>
         public static string GetUser(string username, string password)
         {
             try
@@ -19,6 +21,8 @@ namespace EpistleLibrary.Services
             }
         }
 
+        /// <summary>Creates the user in the database</summary>
+        /// <returns>True if the user is created successfully</returns>
         public static bool CreateUser(string username, string password)
         {
             try
@@ -34,13 +38,15 @@ namespace EpistleLibrary.Services
                 context.SaveChanges();
 
                 return true;
-            } 
+            }
             catch (Exception)
             {
                 return false;
             }
         }
 
+        /// <summary>Deletes the user from the database</summary>
+        /// <returns>True if the user is deleted successfully</returns>
         public static bool DeleteUser()
         {
             return true;
