@@ -4,13 +4,12 @@ using EpistleLibrary.Services;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics;
-using static EpistleLibrary.Services.NoteService;
 
 namespace epistle_app.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index(List<NoteModel> notes)
+        public IActionResult Index()
         {
             return View("Login");
         }
@@ -18,10 +17,19 @@ namespace epistle_app.Controllers
         [HttpPost]
         public IActionResult Index(NoteModel note)
         {
-            // note title is just the first word, neccessary for sorting purposes
-            note.Title = note.Content.Split(' ')[0];
+            if(note.Content == "" || note.Content is null)
+            {
+                return View("Index");
+            }
 
-            AddNote(note);
+            // note title is just the first word, neccessary for sorting purposes
+            var user = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
+
+            note.Title = note.Content.Split(' ')[0];
+            note.User = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
+            NoteService.AddNote(note);
+
+            ViewBag.Username = user.Username;
 
             return View("Index");
         }
