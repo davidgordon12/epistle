@@ -364,3 +364,9 @@ FodyWeavers.xsd
 
 ./EpistleLibrary/Migrations
 ./EpistleLibrary/Data
+./Migrations
+./Data
+/Data
+/Migrations
+Data
+Migrations
