@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Data.SqlClient;
 using EpistleLibrary.Data;
 using EpistleLibrary.Models;
 
@@ -8,9 +9,16 @@ namespace EpistleLibrary.Services
     {
         public static string GetUser(string username, string password)
         {
-
-
-            return "David";
+            try
+            {
+                EpistleContext context = new();
+                var user = context.Users.FirstOrDefault(x => x.Username == username && x.Password == password);
+                return user.Username;
+            }
+            catch(Exception)
+            {
+                return string.Empty;
+            }
         }
 
         public static bool CreateUser(string username, string password)
