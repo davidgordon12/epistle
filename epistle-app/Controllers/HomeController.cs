@@ -2,6 +2,7 @@
 using EpistleLibrary.Models;
 using EpistleLibrary.Services;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Diagnostics;
 using static EpistleLibrary.Services.NoteService;
 
@@ -33,16 +34,23 @@ namespace epistle_app.Controllers
         [HttpPost]
         public IActionResult Login(_LoginModel login)
         {
-            if(UserService.GetUser(login.Username, login.Password) != string.Empty)
-            {
-                ViewBag.Username = login.Username;
-                return View("Index");
-            }
-            else
+            if (UserService.GetUser(login.Username, login.Password) == string.Empty)
             {
                 ViewBag.LoginError = "Incorrect Username or Password";
                 return View();
             }
+
+            HttpContext.Session.SetString("Session", JsonConvert.SerializeObject(login));
+            ViewBag.Username = login.Username;
+            return View("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+
+            return View("Login");
         }
 
         public IActionResult Create()
@@ -54,7 +62,7 @@ namespace epistle_app.Controllers
         [AutoValidateAntiforgeryToken]
         public IActionResult Create(_UserModel user)
         {
-            if(UserService.CreateUser(user.Username, user.Password))
+            if (UserService.CreateUser(user.Username, user.Password))
             {
                 return View("Login");
             }
