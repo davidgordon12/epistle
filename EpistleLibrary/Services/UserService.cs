@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Data.SqlClient;
-using EpistleLibrary.Data;
+﻿using EpistleLibrary.Data;
 using EpistleLibrary.Models;
 
 namespace EpistleLibrary.Services
