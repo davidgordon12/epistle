@@ -2,6 +2,8 @@
 
 <div id="container">
     <form id="create_form" method="post" asp-controller="Home" asp-action="Create">
+        <span class="text-danger">@ViewBag.SignupError</span>
+
         <label asp-for="Username"></label>
         <input autocomplete="off" id="create_field" asp-for="Username" />
         <span asp-validation-for=Username class="text-danger"></span>
