@@ -1,5 +1,6 @@
 ﻿using epistle_app.Models;
 using EpistleLibrary.Models;
+using EpistleLibrary.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using static EpistleLibrary.Services.NoteService;
@@ -21,7 +22,7 @@ namespace epistle_app.Controllers
 
             AddNote(note);
 
-            return RedirectToAction("Index");
+            return View("Index");
         }
 
         public IActionResult Login()
@@ -32,13 +33,16 @@ namespace epistle_app.Controllers
         [HttpPost]
         public IActionResult Login(_LoginModel login)
         {
-            if(1!=1)
+            if(UserService.GetUser(login.Username, login.Password) != string.Empty)
             {
+                ViewBag.Username = login.Username;
                 return View("Index");
             }
-            ViewBag.LoginError = "Incorrect Username or Password";
-            return View();
-
+            else
+            {
+                ViewBag.LoginError = "Incorrect Username or Password";
+                return View();
+            }
         }
 
         public IActionResult Create()
@@ -48,9 +52,17 @@ namespace epistle_app.Controllers
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public IActionResult Create(UserModel user)
+        public IActionResult Create(_UserModel user)
         {
-            return View("Login");
+            if(UserService.CreateUser(user.Username, user.Password))
+            {
+                return View("Login");
+            }
+            else
+            {
+                ViewBag.SignupError = "This username is already taken";
+                return View();
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
