@@ -22,10 +22,8 @@ namespace epistle_app.Controllers
                 return View("Index");
             }
 
-            // note title is just the first word, neccessary for sorting purposes
             var user = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
 
-            note.Title = note.Content.Split(' ')[0];
             note.User = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
             NoteService.AddNote(note);
 
