@@ -4,6 +4,7 @@
     --secondary: #3D3E3D;
     --primary-accent: #1F1F1F;
     --secondary-accent: #353635;
+    --note: #4b4c4b;
     --text: aliceblue;
     /*SIZES*/
     --sidenav: 200px;
@@ -95,7 +96,31 @@ html, body, main {
     margin-inline: 20px;
 }
 
+#note_card {
+    background-color: var(--note);
+    height: 100px;
+    padding-left: 20px;
+    padding-top: 20px;
+    border: solid;
+    border-width: 1px;
+    border-color: var(--secondary);
+}
+
+#note_card:hover {
+    background-color: var(--secondary-accent);
+}
+
 h6 {
+    font-size: larger;
+    color: var(--text);
+}
+
+h5 {
+    font-size: larger;
+    color: var(--text);
+}
+
+h4 {
     font-size: larger;
     color: var(--text);
 }
