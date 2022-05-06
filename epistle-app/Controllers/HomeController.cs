@@ -11,7 +11,7 @@ namespace epistle_app.Controllers
     {
         public IActionResult Index()
         {
-            return View("Login");
+            return View();
         }
 
         [HttpPost]
@@ -19,7 +19,7 @@ namespace epistle_app.Controllers
         {
             if(note.Content == "" || note.Content is null)
             {
-                return View("Index");
+                return View();
             }
 
             var user = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
@@ -47,7 +47,9 @@ namespace epistle_app.Controllers
             }
 
             HttpContext.Session.SetString("Session", JsonConvert.SerializeObject(login));
+
             ViewBag.Username = login.Username;
+
             return View("Index");
         }
 
