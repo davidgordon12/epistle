@@ -8,9 +8,17 @@ namespace EpistleLibrary.Services
     {
         /// <summary>Gets a list of the user's notes</summary>
         /// <returns>A list of the user's notes</returns>
-        public static List<NoteModel> GetNotes()
+        public static List<NoteModel> GetNotes(string username)
         {
             List<NoteModel> notes = new List<NoteModel>();
+
+            using (EpistleContext context = new())
+            {
+                foreach (var note in context.Notes.Where(x => x.User.Username == username))
+                {
+                    notes.Add(note);
+                }
+            }
 
             return notes;
         }
