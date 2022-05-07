@@ -11,6 +11,7 @@ namespace EpistleLibrary.Services
         {
             try
             {
+                password = Hash.HashPassword(password);
                 EpistleContext context = new();
                 var user = context.Users.FirstOrDefault(x => x.Username == username && x.Password == password);
                 return user.Username;
@@ -27,14 +28,13 @@ namespace EpistleLibrary.Services
         {
             try
             {
+                password = Hash.HashPassword(password);
                 EpistleContext context = new();
-
                 context.Add(new UserModel
                 {
                     Username = username,
                     Password = password
                 });
-
                 context.SaveChanges();
 
                 return true;
