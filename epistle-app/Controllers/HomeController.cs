@@ -11,11 +11,21 @@ namespace epistle_app.Controllers
     {
         public IActionResult Index()
         {
+            var user = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
+            ViewBag.Username = user.Username;
             return View();
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult Index(NoteModel note)
+        {
+            var user = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
+            ViewBag.Username = user.Username;
+            return View(note);
+        }
+
+        [HttpPost]
+        public IActionResult Index(NoteModel note, bool? post)
         {
             if(note.Content == "" || note.Content is null)
             {
@@ -70,7 +80,7 @@ namespace epistle_app.Controllers
         [AutoValidateAntiforgeryToken]
         public IActionResult Create(_UserModel user)
         {
-            if (UserService.CreateUser(user.Username, user.Password))
+            if (UserService.CreateUser(user.Username, user.Password, user.Email))
             {
                 return View("Login");
             }
@@ -79,6 +89,13 @@ namespace epistle_app.Controllers
                 ViewBag.SignupError = "This username is already taken";
                 return View();
             }
+        }
+
+        public ActionResult LoadNote(NoteModel note)
+        {
+            NoteService.LoadNote(note);
+
+            return RedirectToAction("Index", note);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
