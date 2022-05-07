@@ -24,7 +24,7 @@ namespace EpistleLibrary.Services
 
         /// <summary>Creates the user in the database</summary>
         /// <returns>True if the user is created successfully</returns>
-        public static bool CreateUser(string username, string password)
+        public static bool CreateUser(string username, string password, string email)
         {
             try
             {
@@ -33,7 +33,8 @@ namespace EpistleLibrary.Services
                 context.Add(new UserModel
                 {
                     Username = username,
-                    Password = password
+                    Password = password,
+                    Email = email
                 });
                 context.SaveChanges();
 

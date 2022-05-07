@@ -20,6 +20,8 @@ namespace EpistleLibrary.Services
                 }
             }
 
+            // sort list newest -> oldest
+            notes.Sort((x, y) => DateTime.Compare(x.DateCreated, y.DateCreated));
             return notes;
         }
 
@@ -40,9 +42,14 @@ namespace EpistleLibrary.Services
 
         /// <summary>Gets the amount of notes a given user currently has created</summary>
         /// <returns>An integer representing the amount of notes the user has</returns>
-        public static int GetNoteCount()
+        public static NoteModel LoadNote(NoteModel note)
         {
-            return 0;
+            using (EpistleContext context = new())
+            {
+                note = context.Notes.FirstOrDefault(x => x.Title == note.Title && x.DateCreated == note.DateCreated);
+            }
+
+            return note;
         }
     }
 }
