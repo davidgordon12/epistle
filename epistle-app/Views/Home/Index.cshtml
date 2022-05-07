@@ -8,25 +8,28 @@
         </div>
         <div id="badge">
             <h6 id="username">@ViewBag.Username</h6>
-            <h6 id="note_count">Total Notes: @NoteService.GetNoteCount()</h6>
+            <button asp-action="Logout" id="logout">Logout</button>
         </div>
     </div>
     <div id="notelist">
         <div id="searchbar">
             <div id="notelist_icons">
-                <div onclick="" class="notelist_button">SORT</div>
+                <button class="notelist_button">SORT</button>
                 <h6>All Notes</h6>
-                <div onclick="" class="notelist_button">NEW</div>
+                <button class="notelist_button">NEW</button>
             </div>
             <input type="text" id="search" placeholder="Type to search..." />
         </div>
-        <div id="notes"> <!-- Get all the user's notes-->
-            @foreach(var note in NoteService.GetNotes(@ViewBag.Username))
+        <div id="notes">
+            <!-- Get all the user's notes-->
+            @foreach (var note in NoteService.GetNotes(@ViewBag.Username))
             {
-                <div id="note_card">
-                    <h4>@note.Title</h4>
-                    <h6>@note.DateCreated</h6>
-                </div>
+                <a class="text-decoration-none" href="@Url.Action("LoadNote","Home", new { note.Title, note.DateCreated })">
+                    <div id="note_card">
+                        <h4>@note.Title</h4>
+                        <h6>@note.DateCreated</h6>
+                    </div>
+                </a>
             }
         </div>
     </div>
@@ -36,6 +39,6 @@
                 <button type="submit" class="toolbar_button">SAVE</button>
             </div>
         </div>
-        <textarea asp-for="Content" spellcheck="false" placeholder="Start your note here..."></textarea>
+        <textarea asp-for="Content" spellcheck="false" placeholder="Start your note here...">@Model.Title</textarea>
     </div>
 </form>
