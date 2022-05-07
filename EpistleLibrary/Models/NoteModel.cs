@@ -4,7 +4,7 @@ namespace EpistleLibrary.Models
 {
     public class NoteModel
     {
-        [Key]
+        public int Id { get; set; }
         public string Title { get; set; }
         public DateTime DateCreated { get; set; } = DateTime.Now;
         public string Content { get; set; }
