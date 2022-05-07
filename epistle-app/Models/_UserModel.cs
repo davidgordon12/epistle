@@ -9,6 +9,11 @@ namespace epistle_app.Models
         [StringLength(20, MinimumLength = 3, ErrorMessage = "Username must be between 3 and 20 characters.")]
         public string? Username { get; set; }
 
+        [Display(Name = "Email")]
+        [Required(ErrorMessage = "Please provide a valid Email")]
+        [RegularExpression(@"^[a-z][a-z|0-9|]*([_][a-z|0-9]+)*([.][a-z|0-9]+([_][a-z|0-9]+)*)?@[a-z][a-z|0-9|]*\.([a-z][a-z|0-9]*(\.[a-z][a-z|0-9]*)?)$", ErrorMessage = "Please provide a valid Email")]
+        public string? Email { get; set; }
+
         [Display(Name = "Password")]
         [Required(ErrorMessage = "Please provide a valid password")]
         [DataType(DataType.Password)]
