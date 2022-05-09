@@ -91,13 +91,6 @@ html, body, main {
         display: none;
     }
 
-#notelist_icons {
-    padding-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    margin-inline: 20px;
-}
-
 #note_card {
     background-color: var(--note);
     width: var(--notelist);
@@ -131,6 +124,7 @@ h4 {
 
 #searchbar {
     height: 80px;
+    padding-top: 10px;
     background-color: var(--secondary-accent);
 }
 
