@@ -19,24 +19,6 @@ namespace epistle_app.Controllers
             });
         }
 
-        [HttpPost]
-        public IActionResult Index(NoteModel note)
-        {
-            if(note.Content == "" || note.Content is null)
-            {
-                return View();
-            }
-
-            var user = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
-            note.User = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
-
-            NoteService.AddNote(note);
-
-            ViewBag.Username = user.Username;
-
-            return RedirectToAction("Index");
-        }
-
         public IActionResult Create()
         {
             return View();
