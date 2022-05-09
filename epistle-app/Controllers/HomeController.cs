@@ -13,7 +13,10 @@ namespace epistle_app.Controllers
         {
             var user = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
             ViewBag.Username = user.Username;
-            return View();
+            return View(new NoteModel
+            {
+                Content = ""
+            });
         }
 
         [HttpPost]
@@ -31,7 +34,7 @@ namespace epistle_app.Controllers
 
             ViewBag.Username = user.Username;
 
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         public IActionResult Create()
@@ -71,7 +74,7 @@ namespace epistle_app.Controllers
 
             ViewBag.Username = login.Username;
 
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -84,9 +87,10 @@ namespace epistle_app.Controllers
 
         public ActionResult LoadNote(NoteModel note)
         {
-            NoteService.LoadNote(note);
-
-            return RedirectToAction("Index", note);
+            note = NoteService.LoadNote(note);
+            var user = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
+            ViewBag.Username = user.Username;
+            return View("Index", note);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
