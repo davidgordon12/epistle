@@ -46,7 +46,7 @@ namespace EpistleLibrary.Services
         {
             using (EpistleContext context = new())
             {
-                note = context.Notes.FirstOrDefault(x => x.Title == note.Title && x.DateCreated == note.DateCreated);
+                note = context.Notes.FirstOrDefault(x => x.Id == note.Id);
             }
 
             return note;
