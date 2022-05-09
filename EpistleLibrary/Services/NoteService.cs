@@ -40,6 +40,16 @@ namespace EpistleLibrary.Services
             }
         }
 
+        public static void UpdateNote(NoteModel note)
+        {
+            using (EpistleContext context = new())
+            {
+                context.Notes.Update(note);
+                context.SaveChanges();
+            }
+
+        }
+
         /// <summary>Gets the amount of notes a given user currently has created</summary>
         /// <returns>An integer representing the amount of notes the user has</returns>
         public static NoteModel LoadNote(NoteModel note)
@@ -52,14 +62,14 @@ namespace EpistleLibrary.Services
             return note;
         }
 
-        /// <summary>Gets the amount of notes a given user currently has created</summary>
-        /// <returns>An integer representing the amount of notes the user has</returns>
+        /// <summary>Deletes a note from the database with the matching Id</summary>
         public static void DeleteNote(NoteModel note)
         {
             using (EpistleContext context = new())
             {
                 note = context.Notes.FirstOrDefault(x => x.Id == note.Id);
                 context.Notes.Remove(note);
+                context.SaveChanges();
             }
         }
     }
