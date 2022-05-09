@@ -43,6 +43,9 @@ namespace epistle_app.Controllers
             return View("Index", note);
         }
 
-
+        public IActionResult DeleteNote(NoteModel note)
+        {
+            return RedirectToAction("Index");
+        }
     }
 }
