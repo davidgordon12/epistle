@@ -35,12 +35,14 @@ namespace epistle_app.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult LoadNote(NoteModel note)
+        public IActionResult LoadNote(NoteModel note)
         {
             note = NoteService.LoadNote(note);
             var user = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
             ViewBag.Username = user.Username;
             return View("Index", note);
         }
+
+
     }
 }
