@@ -35,7 +35,7 @@
                         </div>
                     </a>
                     <div class=" m-3 ">
-                        <input type="button" value="DEL" href="@Url.Action("DelNote", "Note", new { Id = @note.Id })>" />
+                        <a href=@Url.Action("DeleteNote", "Note", new { Id = @note.Id })>DEL</a>
                     </div>
                 </div>
             }
