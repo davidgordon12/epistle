@@ -102,11 +102,6 @@ html, body, main {
     border-color: var(--secondary);
 }
 
-#note_card:hover {
-    background-color: var(--secondary-accent);
-    cursor: pointer;
-}
-
 h6 {
     font-size: larger;
     color: var(--text);
