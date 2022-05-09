@@ -37,10 +37,9 @@ namespace epistle_app.Controllers
 
         public IActionResult LoadNote(NoteModel note)
         {
-            note = NoteService.LoadNote(note);
             var user = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
             ViewBag.Username = user.Username;
-            return View("Index", note);
+            return View("Index", NoteService.LoadNote(note));
         }
 
         public IActionResult DeleteNote(NoteModel note)
