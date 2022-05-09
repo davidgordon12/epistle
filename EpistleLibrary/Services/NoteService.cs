@@ -51,5 +51,16 @@ namespace EpistleLibrary.Services
 
             return note;
         }
+
+        /// <summary>Gets the amount of notes a given user currently has created</summary>
+        /// <returns>An integer representing the amount of notes the user has</returns>
+        public static void DeleteNote(NoteModel note)
+        {
+            using (EpistleContext context = new())
+            {
+                note = context.Notes.FirstOrDefault(x => x.Id == note.Id);
+                context.Notes.Remove(note);
+            }
+        }
     }
 }
