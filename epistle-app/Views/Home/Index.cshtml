@@ -4,7 +4,7 @@
 <script>
     function load_text()
     {
-        document.getElementById('textarea').value = "debug";
+        document.getElementById('textarea').value = '@Model.Content';
     }
 </script>
 
@@ -20,20 +20,23 @@
     </div>
     <div id="notelist">
         <div id="searchbar">
-            <div id="notelist_icons">
-                <button class="notelist_button">SORT</button>
-                <h6>All Notes</h6>
-                <button type="button" onclick="load_text()" class="notelist_button">NEW</button>
-            </div>
+            <h6 class="text-center">All Notes</h6>
             <input type="text" id="search" placeholder="Type to search..." />
         </div>
         <div id="notes">
             <!-- Get all the user's notes-->
             @foreach (var note in NoteService.GetNotes(@ViewBag.Username))
             {
-                <div id="note_card" onclick="load_text()">
-                    <h4>@note.Title</h4>
-                    <h6>@note.DateCreated</h6>
+                <div id="note_card" onclick="load_text()" class="d-flex justify-content-between">
+                    <a class="text-decoration-none" href=@Url.Action("LoadNote", "Home", new { Id = @note.Id })>
+                        <div>
+                            <h4>@note.Title</h4>
+                            <h6>@note.DateCreated</h6>
+                        </div>
+                    </a>
+                    <div class=" m-3 ">
+                        <input type="button" value="DEL" href="@Url.Action("DelNote", "Home", new { Id = @note.Id })>" />
+                    </div>
                 </div>
             }
         </div>
