@@ -67,14 +67,6 @@ namespace epistle_app.Controllers
             return View("Login");
         }
 
-        public ActionResult LoadNote(NoteModel note)
-        {
-            note = NoteService.LoadNote(note);
-            var user = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
-            ViewBag.Username = user.Username;
-            return View("Index", note);
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
