@@ -5,6 +5,8 @@
     function load_text()
     {
         document.getElementById('textarea').value = '@Model.Content';
+        document.getElementById('note_id').value = '@Model.Id';
+
     }
 </script>
 
@@ -44,9 +46,11 @@
     <div id="editor">
         <div id="toolbar">
             <div id="toolbar_items">
-                <button type="submit" class="toolbar_button" asp-action="CreateNote" asp-controller="Note">SAVE</button>
+                <button asp-action="Index" asp-controller="Note"> X </button>
+                <button asp-action="CreateNote" asp-controller="Note"> SAVE </button>
             </div>
         </div>
-        <textarea asp-for="Content" id="textarea" spellcheck="false" placeholder="Start your note here...">@Model.Title</textarea>
+        <textarea asp-for=Content id="textarea" spellcheck="false" placeholder="Start your note here..."></textarea>
+        <input id="note_id" class="visually-hidden" asp-for=Id />
     </div>
 </form>
