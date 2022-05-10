@@ -16,7 +16,7 @@ html, body, main {
   margin: 0;
   height: 100%;
   overflow: hidden;
-  background-color: var(--secondary)
+  background-color: var(--secondary);
 }
 
 .wrapper {
@@ -144,7 +144,7 @@ a {
 }
 
     #note_card:hover {
-        background-color: #ada59e;
+        background-color: #a69d96;
     }
 
 h6 {
@@ -212,7 +212,7 @@ textarea {
     border: none;
     padding: 1em;
     overflow-y: scroll;
-    background-color: #ece8e8;
+    background-color: #dfdbd9;
     color: var(--text);
     resize: none;
     scrollbar-width: none;
