@@ -66,8 +66,7 @@ namespace EpistleLibrary.Services
         {
             using (EpistleContext context = new())
             {
-                note = context.Notes.FirstOrDefault(x => x.Id == note.Id);
-                context.Notes.Remove(note);
+                context.Notes.Remove(context.Notes.FirstOrDefault(x => x.Id == note.Id));
                 context.SaveChanges();
             }
         }
