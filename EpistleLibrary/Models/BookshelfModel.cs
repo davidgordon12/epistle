@@ -1,6 +1,6 @@
 ﻿namespace EpistleLibrary.Models
 {
-    public class BookshelfModel
+    internal class BookshelfModel
     {
     }
 }
