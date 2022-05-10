@@ -11,6 +11,7 @@ namespace epistle_app.Controllers
         {
             var user = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
             ViewBag.Username = user.Username;
+
             return View(new NoteModel
             {
                 Content = ""
@@ -20,7 +21,8 @@ namespace epistle_app.Controllers
         public IActionResult CreateNote(NoteModel note)
         {
             var user = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
-            note.User = user;
+            note.User = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
+
             if (note.Content == "" || note.Content is null)
             {
                 return RedirectToAction("Index");
@@ -40,7 +42,6 @@ namespace epistle_app.Controllers
 
         public IActionResult DeleteNote(NoteModel note)
         {
-            NoteService.DeleteNote(note);
             return RedirectToAction("Index");
         }
     }
