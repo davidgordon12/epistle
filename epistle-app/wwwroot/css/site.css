@@ -27,7 +27,13 @@ html, body, main {
 }
 
 a {
+    font-weight: 500;
     color: var(--text);
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
 }
 
 /* SIDENAV */
@@ -190,7 +196,7 @@ h4 {
 }
 
 #toolbar {
-    height: 40px;
+    height: 50px;
     background-color: #a69d96;
     margin: 0 auto;
 }
@@ -216,6 +222,7 @@ textarea {
     color: var(--text);
     resize: none;
     scrollbar-width: none;
+    font-size: large;
 }
 
     textarea:focus {
@@ -302,11 +309,11 @@ textarea {
 }
 
     #login_button:hover {
-        background-color: var(--primary);
+        background-color: #81766e;
     }
 
     #create_button:hover {
-        background-color: var(--primary);
+        background-color: #81766e;
     }
 
 h5 {
