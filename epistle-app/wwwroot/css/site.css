@@ -7,7 +7,7 @@
     --note: #4b4c4b;
     --text: aliceblue;
     /*SIZES*/
-    --sidenav: 300px;
+    --sidenav: 200px;
     --notelist: 300px;
     --editor: 100%;
 }
@@ -188,7 +188,6 @@ textarea {
     }
 
     div#notelist {
-        width: var(--notelist);
         grid-column: 1;
     }
 
