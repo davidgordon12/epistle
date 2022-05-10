@@ -34,18 +34,9 @@ namespace EpistleLibrary.Services
 
             using (EpistleContext context = new())
             {
-                try
-                {
-                    context.Entry(note).State = EntityState.Unchanged;
-                    context.Notes.Update(context.Notes.Where(x=>x.Id==note.Id).FirstOrDefault());
-                    context.SaveChanges();
-                }
-                catch (Exception)
-                {
-                    context.Entry(note).State = EntityState.Unchanged;
-                    context.Notes.Add(note);
-                    context.SaveChanges();
-                }
+                context.Entry(note).State = EntityState.Unchanged; // https://stackoverflow.com/questions/29721538/violation-of-primary-key-entity-framework-code-first
+                context.Notes.Add(note);
+                context.SaveChanges();
             }
         }
 
