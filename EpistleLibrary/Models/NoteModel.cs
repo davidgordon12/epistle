@@ -10,5 +10,6 @@ namespace EpistleLibrary.Models
         public string Content { get; set; }
 
         public UserModel User { get; set; }
+        public BookshelfModel? Bookshelf { get; set; }
     }
 }
