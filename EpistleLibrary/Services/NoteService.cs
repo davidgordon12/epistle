@@ -21,7 +21,7 @@ namespace EpistleLibrary.Services
             }
 
             // sort list newest -> oldest
-            notes.Sort((x, y) => DateTime.Compare(x.DateCreated, y.DateCreated));
+            notes.Sort((x, y) => DateTime.Compare(y.DateCreated, x.DateCreated));
             return notes;
         }
 
