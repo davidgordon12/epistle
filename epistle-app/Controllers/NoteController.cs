@@ -42,6 +42,8 @@ namespace epistle_app.Controllers
 
         public IActionResult DeleteNote(NoteModel note)
         {
+            NoteService.DeleteNote(note);
+
             return RedirectToAction("Index");
         }
     }
