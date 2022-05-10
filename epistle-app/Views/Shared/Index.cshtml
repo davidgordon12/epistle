@@ -6,7 +6,6 @@
     {
         document.getElementById('textarea').value = '@Model.Content';
         document.getElementById('note_id').value = '@Model.Id';
-
     }
 </script>
 
@@ -37,6 +36,7 @@
                         </div>
                     </a>
                     <div class=" m-3 ">
+                        <a href=@Url.Action("CreateBookshelf", "Note", new { Id = @note.Id })>SHELF</a>
                         <a href=@Url.Action("DeleteNote", "Note", new { Id = @note.Id })>DEL</a>
                     </div>
                 </div>
