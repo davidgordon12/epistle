@@ -59,7 +59,6 @@ namespace epistle_app.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
