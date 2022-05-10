@@ -14,6 +14,17 @@
         <div id="head">
             <h6 id="title">Epistle</h6>
         </div>
+        <div id="bookshelves">
+            <div id="bookshelf_title">
+                <h5 id="bookshelf_header">Bookshelves</h5>
+                <a id="new_bookshelf" class="text-decoration-none text-white" href="#">+</a>
+            </div>
+            <div id="bookshelf_list">
+                <!-- every account will have an "all notes" bookshelf -->
+                <a id="all_notes" class="text-decoration-none text-white" href="">All Notes</a>
+                <!-- foreach bookshelf make another anchor tag like ^^^ -->
+            </div>
+        </div>
         <div id="badge">
             <h6 id="username">@ViewBag.Username</h6>
             <button asp-action="Logout" id="logout">Logout</button>
