@@ -1,6 +1,13 @@
-﻿namespace EpistleLibrary.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace EpistleLibrary.Models
 {
-    internal class BookshelfModel
+    public class BookshelfModel
     {
+        [Key]
+        public string Title { get; set; }
+        public List<NoteModel> Notes { get; set; }
+
+        public UserModel User { get; set; }
     }
 }
