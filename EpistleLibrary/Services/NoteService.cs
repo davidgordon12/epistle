@@ -25,7 +25,7 @@ namespace EpistleLibrary.Services
             return notes;
         }
 
-        /// <summary>Creates the note in the database</summary>
+        /// <summary>Creates or updates the note in the database</summary>
         /// <param name="note">Note contains a Title, Content, Date Created, and User</param>
         public static void AddNote(NoteModel note)
         {
@@ -34,20 +34,19 @@ namespace EpistleLibrary.Services
 
             using (EpistleContext context = new())
             {
-                context.Entry(note).State = EntityState.Unchanged; // https://stackoverflow.com/questions/29721538/violation-of-primary-key-entity-framework-code-first
-                context.Notes.Add(note);
-                context.SaveChanges();
+                try
+                {
+                    context.Entry(note).State = EntityState.Unchanged;
+                    context.Notes.Update(context.Notes.Where(x => x.Id == note.Id).FirstOrDefault());
+                    context.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    context.Entry(note).State = EntityState.Unchanged; // https://stackoverflow.com/questions/29721538/violation-of-primary-key-entity-framework-code-first
+                    context.Notes.Add(note);
+                    context.SaveChanges();
+                }
             }
-        }
-
-        public static void UpdateNote(NoteModel note)
-        {
-            using (EpistleContext context = new())
-            {
-                context.Notes.Update(note);
-                context.SaveChanges();
-            }
-
         }
 
         /// <summary>Gets the amount of notes a given user currently has created</summary>
