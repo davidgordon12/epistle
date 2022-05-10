@@ -55,6 +55,36 @@ html, body, main {
     color: var(--text);
 }
 
+#bookshelves {
+    margin-top: 100px;
+}
+
+#bookshelf_title {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 15px;
+}
+
+#bookshelf_header {
+    font-size: x-large;
+}
+
+#new_bookshelf {
+    height: 30px;
+    margin-top: 15px;
+    font-size: x-large;
+}
+
+#bookshelf_list {
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+#all_notes {
+    font-size: larger;
+}
+
 #badge {
     position: absolute;
     bottom: 0;
