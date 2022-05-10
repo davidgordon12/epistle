@@ -1,11 +1,11 @@
 :root {
     /* COLORS */
-    --primary: #2A2A2A;
-    --secondary: #3D3E3D;
-    --primary-accent: #1F1F1F;
+    --primary: #353635;
+    --secondary: #B2AAA4;
+    --primary-accent: #91867E;
     --secondary-accent: #353635;
     --note: #4b4c4b;
-    --text: aliceblue;
+    --text: #413535;
     /*SIZES*/
     --sidenav: 300px;
     --notelist: 300px;
@@ -26,13 +26,16 @@ html, body, main {
     grid-auto-rows: minmax(100px, auto);
 }
 
+a {
+    color: var(--text);
+}
 
 /* SIDENAV */
 #sidenav {
     grid-column: 1;
     grid-row: 1;
     overflow: scroll;
-    background-color: var(--primary);
+    background-color: var(--primary-accent);
     scrollbar-width: none;
 }
 
@@ -46,6 +49,7 @@ html, body, main {
     height: 80px;
     width: var(--sidenav);
     background-color: var(--primary-accent);
+    border-bottom: solid 3px #ece8e8;
 }
 
 #title {
@@ -70,6 +74,11 @@ html, body, main {
     font-size: x-large;
 }
 
+#bookshelf_list {
+    display: flex;
+    flex-direction: column;
+}
+
 #new_bookshelf {
     height: 30px;
     margin-top: 15px;
@@ -77,12 +86,13 @@ html, body, main {
 }
 
 #bookshelf_list {
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 30px;
 }
 
 #all_notes {
     font-size: larger;
+    margin-top: 8px;
 }
 
 #badge {
@@ -92,6 +102,7 @@ html, body, main {
     width: var(--sidenav);
     background-color: var(--primary-accent);
     text-align: center;
+    border-top: solid 3px #ece8e8;
 }
 
 #username {
@@ -122,7 +133,7 @@ html, body, main {
     }
 
 #note_card {
-    background-color: var(--note);
+    background-color: #c2bbb7;
     width: var(--notelist);
     height: 100px;
     padding-left: 20px;
@@ -131,6 +142,10 @@ html, body, main {
     border-width: 1px;
     border-color: var(--secondary);
 }
+
+    #note_card:hover {
+        background-color: #ada59e;
+    }
 
 h6 {
     font-size: larger;
@@ -150,14 +165,14 @@ h4 {
 #searchbar {
     height: 80px;
     padding-top: 10px;
-    background-color: var(--secondary-accent);
+    background-color: var(--secondary);
 }
 
 #search {
     border: none;
     border-radius: 15px;
     padding: 2px 15px 2px 15px;
-    background-color: #242424;
+    background-color: #e0d9d9;
     margin-left: 35px;
     margin-top: 5px;
     color: var(--text);
@@ -176,13 +191,14 @@ h4 {
 
 #toolbar {
     height: 40px;
-    background-color: var(--primary-accent);
+    background-color: #a69d96;
     margin: 0 auto;
 }
 
 #toolbar_items {
     display: flex;
     justify-content: center;
+
 }
 
 .toolbar_button {
@@ -196,7 +212,7 @@ textarea {
     border: none;
     padding: 1em;
     overflow-y: scroll;
-    background-color: var(--primary);
+    background-color: #ece8e8;
     color: var(--text);
     resize: none;
     scrollbar-width: none;
