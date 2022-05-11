@@ -7,5 +7,6 @@ namespace EpistleLibrary.Models
         [Key]
         public string Title { get; set; }
         public List<NoteModel> Notes { get; set; }
+        public UserModel User { get; set; }
     }
 }
