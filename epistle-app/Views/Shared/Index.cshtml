@@ -7,6 +7,10 @@
         document.getElementById('textarea').value = '@Model.Content';
         document.getElementById('note_id').value = '@Model.Id';
     }
+    function dark_mode()
+    {
+        document.getElementById('textarea').classList.toggle('dark_mode');
+    }
 </script>
 
 <form class="wrapper">
@@ -24,7 +28,7 @@
                 <a id="all_notes" class="text-decoration-none " href="">All Notes</a>
                 @foreach(var bookshelf in @BookshelfService.GetBookshelves(@ViewBag.Username))
                 {
-                    <a id="all_notes" class="text-decoration-none " href="">@bookshelf.Title</a>
+                    <a id="all_notes" class="text-decoration-none" href="">@bookshelf.Title</a>
                 }
             </div>
         </div>
@@ -50,7 +54,7 @@
                         </div>
                     </a>
                     <div class=" m-3 ">
-                        <a href=@Url.Action("CreateBookshelf", "Note", new { Id = @note.Id })>SHELF</a>
+                        <a href=@Url.Action("AddShelf", "Note", new { Title = "TEST SHELF" })>SHELF</a>
                         <a href=@Url.Action("DeleteNote", "Note", new { Id = @note.Id })>DEL</a>
                     </div>
                 </div>
@@ -62,6 +66,7 @@
             <div id="toolbar_items">
                 <button asp-action="Index" asp-controller="Note"> X </button>
                 <button asp-action="CreateNote" asp-controller="Note"> SAVE </button>
+                <button type="button" onclick="dark_mode()"> THEME </button>
             </div>
         </div>
         <textarea asp-for=Content id="textarea" spellcheck="false" placeholder="Start your note here..."></textarea>
