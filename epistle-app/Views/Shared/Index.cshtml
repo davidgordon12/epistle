@@ -21,14 +21,17 @@
         <div id="bookshelves">
             <div id="bookshelf_title">
                 <h5 id="bookshelf_header">Bookshelves</h5>
-                <a id="new_bookshelf" class="text-decoration-none " href="#">+</a>
+                <a id="new_bookshelf" class="text-decoration-none " href="@Url.Action("CreateShelf", "Shelf", new { Title = "TEST SHELF" })">+</a>
             </div>
             <div id="bookshelf_list">
                 <!-- every account will have an "all notes" bookshelf -->
                 <a id="all_notes" class="text-decoration-none " href="">All Notes</a>
                 @foreach(var bookshelf in @BookshelfService.GetBookshelves(@ViewBag.Username))
                 {
-                    <a id="all_notes" class="text-decoration-none" href="">@bookshelf.Title</a>
+                    <div id="bookshelf_options">
+                        <a id="all_notes" class="text-decoration-none" href="@Url.Action("AddShelf", "Shelf", new { Title = "TEST SHELF" })">@bookshelf.Title</a>
+                        <a id="all_notes" class="text-decoration-none" href="@Url.Action("DeleteShelf", "Shelf", new { Title = "TEST SHELF" })"> DEL</a>
+                    </div>
                 }
             </div>
         </div>
@@ -54,7 +57,7 @@
                         </div>
                     </a>
                     <div class=" m-3 ">
-                        <a href=@Url.Action("AddShelf", "Note", new { Title = "TEST SHELF" })>SHELF</a>
+                        <a href=@Url.Action("AddShelf", "Shelf")>SHELF</a>
                         <a href=@Url.Action("DeleteNote", "Note", new { Id = @note.Id })>DEL</a>
                     </div>
                 </div>
