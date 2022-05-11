@@ -21,8 +21,12 @@ html, body, main {
     margin: 0;
     height: 100%;
     overflow: hidden;
-    background-color: #91867E;
     font-family: sans-serif;
+    background: hsla(20, 9%, 86%, 1);
+    background: linear-gradient(135deg, hsla(20, 9%, 86%, 1) 0%, hsla(25, 8%, 53%, 1) 100%);
+    background: -moz-linear-gradient(135deg, hsla(20, 9%, 86%, 1) 0%, hsla(25, 8%, 53%, 1) 100%);
+    background: -webkit-linear-gradient(135deg, hsla(20, 9%, 86%, 1) 0%, hsla(25, 8%, 53%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#DFDBD9", endColorstr="#91867E", GradientType=1 );
 }
 
 .wrapper {
@@ -55,8 +59,29 @@ a:hover {
         display: none;
     }
 
-#head {
+#shelf_creation {
     position: absolute;
+    z-index: 1;
+    margin: 150px 30px 30px 30px;
+    width: var(--sidenav);
+}
+
+#shelf_input {
+    background-color: #dfdbd9;
+    border: none;
+    color: var(--text);
+}
+
+#shelf_input:focus {
+    outline: none;
+}
+
+#shelf_controls {
+    display: flex;
+    flex-direction: row;
+}
+
+#head {
     top: 0;
     height: 80px;
     width: var(--sidenav);
@@ -72,7 +97,6 @@ a:hover {
 }
 
 #bookshelves {
-    margin-top: 100px;
 }
 
 #bookshelf_title {
@@ -89,6 +113,8 @@ a:hover {
 #bookshelf_list {
     display: flex;
     flex-direction: column;
+    margin-top: 25px;
+    margin-left: 30px;
 }
 
 #bookshelf_options {
@@ -103,11 +129,6 @@ a:hover {
     font-size: x-large;
 }
 
-#bookshelf_list {
-    margin-top: 10px;
-    margin-left: 30px;
-}
-
 #all_notes {
     font-size: larger;
     margin-top: 8px;
@@ -115,6 +136,7 @@ a:hover {
 
 #badge {
     position: absolute;
+    z-index: 2;
     bottom: 0;
     height: 80px;
     width: var(--sidenav);
@@ -300,8 +322,8 @@ textarea {
 
 #login_field, #create_field {
     border: none;
-    background-color: #746a63;
-    color: aliceblue;
+    background-color: #dfdbd9;
+    color: var(--text);
 }
 
     #login_field:focus {
@@ -315,8 +337,8 @@ textarea {
 #login_button, #create_button {
     border: none;
     margin-top: 20px;
-    color: aliceblue;
-    background-color: #746a63;
+    background-color: #dfdbd9;
+    color: var(--text);
 }
 
     #login_button:hover {
@@ -332,9 +354,9 @@ h5 {
 }
 
 label {
-    color: aliceblue;
+    color: var(--text);
 }
 
 #account_a {
-    color: aliceblue;
+    color: var(--text);
 }

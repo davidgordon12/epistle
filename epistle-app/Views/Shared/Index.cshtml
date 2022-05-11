@@ -1,4 +1,5 @@
 ﻿@using EpistleLibrary.Services
+@using EpistleLibrary.Models
 @model EpistleLibrary.Models.NoteModel
 
 <script>
@@ -11,8 +12,14 @@
     {
         document.getElementById('textarea').classList.toggle('dark_mode');
     }
+    function render_shelf()
+    {
+        document.getElementById('shelf_creation').classList.toggle('visually-hidden');
+    }
 </script>
-
+<div id="shelf_creation" class="visually-hidden">
+    @await Html.PartialAsync("_ShelfCreation", new BookshelfModel { Title = "" })
+</div>
 <form class="wrapper">
     <div id="sidenav">
         <div id="head">
@@ -21,7 +28,7 @@
         <div id="bookshelves">
             <div id="bookshelf_title">
                 <h5 id="bookshelf_header">Bookshelves</h5>
-                <a id="new_bookshelf" class="text-decoration-none " href="@Url.Action("CreateShelf", "Shelf", new { Title = "TEST SHELF" })">+</a>
+                <a id="new_bookshelf" class="text-decoration-none" onclick="render_shelf()" href="#">+</a>
             </div>
             <div id="bookshelf_list">
                 <!-- every account will have an "all notes" bookshelf -->
@@ -29,8 +36,8 @@
                 @foreach(var bookshelf in @BookshelfService.GetBookshelves(@ViewBag.Username))
                 {
                     <div id="bookshelf_options">
-                        <a id="all_notes" class="text-decoration-none" href="@Url.Action("AddShelf", "Shelf", new { Title = "TEST SHELF" })">@bookshelf.Title</a>
-                        <a id="all_notes" class="text-decoration-none" href="@Url.Action("DeleteShelf", "Shelf", new { Title = "TEST SHELF" })"> DEL</a>
+                        <a id="all_notes" class="text-decoration-none" href="">@bookshelf.Title</a>
+                        <a id="all_notes" class="text-decoration-none" href=""> DEL</a>
                     </div>
                 }
             </div>

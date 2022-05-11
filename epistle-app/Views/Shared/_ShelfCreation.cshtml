@@ -1,0 +1,13 @@
+﻿@model EpistleLibrary.Models.BookshelfModel
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateShelf" asp-controller="Shelf">
+            <div id="shelf_controls">
+                <input id="shelf_input" asp-for="Title" />
+                <input type="submit" value="Ok" />
+                <a href=@Url.Action("Index", "Home")>X</a>
+            </div>
+        </form>
+    </div>
+</div>
