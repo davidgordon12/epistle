@@ -20,7 +20,6 @@ namespace epistle_app.Controllers
 
         public IActionResult CreateNote(NoteModel note)
         {
-            var user = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
             note.User = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
 
             if (note.Content == "" || note.Content is null)
