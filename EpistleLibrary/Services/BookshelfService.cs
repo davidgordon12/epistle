@@ -1,5 +1,6 @@
 ﻿using EpistleLibrary.Data;
 using EpistleLibrary.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EpistleLibrary.Services
 {
@@ -11,26 +12,44 @@ namespace EpistleLibrary.Services
         {
             List<BookshelfModel> bookshelves = new List<BookshelfModel>();
 
-            bookshelves.Add(new BookshelfModel
-            {
-                Title = "Ideas"
-            });
-            bookshelves.Add(new BookshelfModel
-            {
-                Title = "Work"
-            });
-
             using (EpistleContext context = new())
             {
-                var user = context.Users.Where(x=>x.Username == username).FirstOrDefault();
-
-                /*foreach(var bookshelf in user.Bookshelves)
+                foreach(var bookshelf in context.Bookshelves.Where(x => x.User.Username == username))
                 {
                     bookshelves.Add(bookshelf);
-                }*/
+                }
             }
 
             return bookshelves;
+        }
+
+        public static void CreateBookshelf(BookshelfModel bookshelf)
+        {
+            using(EpistleContext context = new())
+            {
+                try
+                {
+                    context.Entry(bookshelf).State = EntityState.Unchanged;
+                    context.Bookshelves.Add(bookshelf);
+                    context.SaveChanges();
+                }
+                catch (Exception)
+                { }
+            }
+        }
+
+        public static void DeleteBookshelf(BookshelfModel bookshelf)
+        {
+            using (EpistleContext context = new())
+            {
+                try
+                {
+                    context.Bookshelves.Remove(bookshelf);
+                    context.SaveChanges();
+                }
+                catch (Exception)
+                { }
+            }
         }
     }
 }
