@@ -91,6 +91,12 @@ a:hover {
     flex-direction: column;
 }
 
+#bookshelf_options {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 15px;
+}
+
 #new_bookshelf {
     height: 30px;
     margin-top: 15px;
