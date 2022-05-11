@@ -12,11 +12,17 @@
     --editor: 100%;
 }
 
+.dark_mode {
+    background-color: #2A2A2A;
+    color: aliceblue;
+}
+
 html, body, main {
-  margin: 0;
-  height: 100%;
-  overflow: hidden;
-  background-color: var(--secondary);
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #91867E;
+    font-family: sans-serif;
 }
 
 .wrapper {
@@ -280,7 +286,6 @@ textarea {
 #login_form, #create_form {
     display: flex;
     flex-direction: column;
-    color: var(--text);
     text-align: center;
     font-size: x-large;
     width: 300px;
@@ -289,8 +294,8 @@ textarea {
 
 #login_field, #create_field {
     border: none;
-    background-color: var(--primary);
-    color: var(--text);
+    background-color: #746a63;
+    color: aliceblue;
 }
 
     #login_field:focus {
@@ -304,19 +309,26 @@ textarea {
 #login_button, #create_button {
     border: none;
     margin-top: 20px;
-    color: var(--text);
-    background-color: var(--primary-accent);
+    color: aliceblue;
+    background-color: #746a63;
 }
 
     #login_button:hover {
-        background-color: #81766e;
+        background-color: #59524c;
     }
 
     #create_button:hover {
-        background-color: #81766e;
+        background-color: #59524c;
     }
 
 h5 {
     margin-top: 20px;
-    color: var(--text);
+}
+
+label {
+    color: aliceblue;
+}
+
+#account_a {
+    color: aliceblue;
 }
