@@ -4,7 +4,8 @@
     <select>
         @foreach(var bookshelf in BookshelfService.GetBookshelves(@ViewBag.Username))
         {
-           <option>bookshelf.Title</option> 
+           <option>@bookshelf.Title</option> 
         }
     </select>
+    <button>Ok</button>
 </form>
