@@ -3,22 +3,16 @@
 @model EpistleLibrary.Models.NoteModel
 
 <script>
-    function load_text()
-    {
+    function load_text() {
         document.getElementById('textarea').value = '@Model.Content';
         document.getElementById('note_id').value = '@Model.Id';
-    }
-    function dark_mode()
-    {
-        document.getElementById('textarea').classList.toggle('dark_mode');
-    }
-    function render_shelf()
-    {
-        document.getElementById('shelf_creation').classList.toggle('visually-hidden');
     }
 </script>
 <div id="shelf_creation" class="visually-hidden">
     @await Html.PartialAsync("_ShelfCreation", new BookshelfModel { Title = "" })
+</div>
+<div id="push_shelf" class="visually-hidden">
+    @await Html.PartialAsync("_PushShelf")
 </div>
 <form class="wrapper">
     <div id="sidenav">
@@ -37,7 +31,7 @@
                 {
                     <div id="bookshelf_options">
                         <a id="all_notes" class="text-decoration-none" href="">@bookshelf.Title</a>
-                        <a id="all_notes" class="text-decoration-none" href=""> DEL</a>
+                        <a id="all_notes" class="text-decoration-none" href=""> DEL </a>
                     </div>
                 }
             </div>
@@ -64,7 +58,7 @@
                         </div>
                     </a>
                     <div class=" m-3 ">
-                        <a href=@Url.Action("AddShelf", "Shelf")>SHELF</a>
+                        <a onclick="render_push(), fix_text()">SHELF</a>
                         <a href=@Url.Action("DeleteNote", "Note", new { Id = @note.Id })>DEL</a>
                     </div>
                 </div>
