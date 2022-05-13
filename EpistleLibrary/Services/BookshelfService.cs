@@ -14,7 +14,7 @@ namespace EpistleLibrary.Services
 
             using (EpistleContext context = new())
             {
-                foreach(var bookshelf in context.Bookshelves.Where(x => x.User.Username == username))
+                foreach (var bookshelf in context.Bookshelves.Where(x => x.User.Username == username))
                 {
                     bookshelves.Add(bookshelf);
                 }
@@ -25,7 +25,7 @@ namespace EpistleLibrary.Services
 
         public static void CreateBookshelf(BookshelfModel bookshelf)
         {
-            using(EpistleContext context = new())
+            using (EpistleContext context = new())
             {
                 try
                 {
@@ -42,13 +42,8 @@ namespace EpistleLibrary.Services
         {
             using (EpistleContext context = new())
             {
-                try
-                {
-                    context.Bookshelves.Remove(bookshelf);
-                    context.SaveChanges();
-                }
-                catch (Exception)
-                { }
+                context.Bookshelves.Remove(bookshelf);
+                context.SaveChanges();
             }
         }
     }
