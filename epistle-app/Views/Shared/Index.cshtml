@@ -14,6 +14,9 @@
 <div id="push_shelf" class="visually-hidden">
     @await Html.PartialAsync("_PushShelf", new NoteModel {Id=@Model.Id})
 </div>
+<div id="delete_shelf" class="visually-hidden">
+    @await Html.PartialAsync("_DelShelf", new NoteModel {Id=@Model.Id})
+</div>
 <form class="wrapper">
     <div id="sidenav">
         <div id="head">
@@ -31,7 +34,7 @@
                 {
                     <div id="bookshelf_options">
                         <a id="all_notes" class="text-decoration-none" href="">@bookshelf.Title</a>
-                        <a id="all_notes" class="text-decoration-none" href=""> DEL </a>
+                        <a id="all_notes" class="text-decoration-none" href="#" onclick="render_delete()"> DEL </a>
                     </div>
                 }
             </div>
