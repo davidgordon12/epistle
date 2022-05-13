@@ -49,8 +49,8 @@ namespace EpistleLibrary.Services
             }
         }
 
-        /// <summary>Gets the amount of notes a given user currently has created</summary>
-        /// <returns>An integer representing the amount of notes the user has</returns>
+        /// <summary>Loads the given note into the textarea</summary>
+        /// <returns>The specified note</returns>
         public static NoteModel LoadNote(NoteModel note)
         {
             using (EpistleContext context = new())
@@ -68,6 +68,23 @@ namespace EpistleLibrary.Services
             {
                 context.Notes.Remove(context.Notes.FirstOrDefault(x => x.Id == note.Id));
                 context.SaveChanges();
+            }
+        }
+
+        /// <summary>Attatches a note to a bookshelf</summary>
+        public static void AddToShelf(NoteModel note)
+        {
+            using (EpistleContext context = new())
+            {
+                try
+                {
+                    var _note = context.Notes.Where(x => x.Id == note.Id).FirstOrDefault();
+                    _note.Bookshelf.Title = note.Bookshelf.Title;
+                    context.Notes.Update(_note);
+                    context.SaveChanges();
+                }
+                catch(Exception)
+                { }
             }
         }
     }
