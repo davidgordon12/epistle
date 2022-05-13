@@ -9,17 +9,16 @@ namespace EpistleLibrary.Services
         /// <returns>The user's username, or, if not found, an empty string</returns>
         public static string GetUser(string username, string password)
         {
-            try
-            {
-                password = Hash.HashPassword(password);
-                EpistleContext context = new();
-                var user = context.Users.FirstOrDefault(x => x.Username == username && x.Password == password);
-                return user.Username;
-            }
-            catch(Exception)
+            password = Hash.HashPassword(password);
+            EpistleContext context = new();
+            var user = context.Users.FirstOrDefault(x => x.Username == username && x.Password == password);
+
+            if(user is null)
             {
                 return string.Empty;
             }
+
+            return user.Username;
         }
 
         /// <summary>Creates the user in the database</summary>
