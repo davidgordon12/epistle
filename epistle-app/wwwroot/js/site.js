@@ -7,6 +7,9 @@ function render_shelf() {
 function render_push() {
     document.getElementById('push_shelf').classList.toggle('visually-hidden');
 }
+function render_delete() {
+    document.getElementById('delete_shelf').classList.toggle('visually-hidden');
+}
 function fix_text() {
     setTimeout(fix, 100);
 }
