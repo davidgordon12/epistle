@@ -45,5 +45,12 @@ namespace epistle_app.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public IActionResult AddToShelf(NoteModel note)
+        {
+            NoteService.AddToShelf(note);
+
+            return RedirectToAction("Index");
+        }
     }
 }

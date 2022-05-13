@@ -36,11 +36,6 @@ namespace epistle_app.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult AddShelf(BookshelfModel bookshelf)
-        {
-            return RedirectToAction("Index");
-        }
-
         public IActionResult LoadShelf(BookshelfModel bookshelf)
         {
             return RedirectToAction("Index");
