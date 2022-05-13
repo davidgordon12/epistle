@@ -29,8 +29,6 @@ namespace epistle_app.Controllers
 
         public IActionResult DeleteShelf(BookshelfModel bookshelf)
         {
-            bookshelf.User = JsonConvert.DeserializeObject<UserModel>(HttpContext.Session.GetString("Session"));
-
             BookshelfService.DeleteBookshelf(bookshelf);
 
             return RedirectToAction("Index");
