@@ -78,7 +78,7 @@ namespace EpistleLibrary.Services
             {
                 try
                 {
-                    context.Notes.Update(note);
+                    context.Notes.Where(x=>x.Id==note.Id).FirstOrDefault().Bookshelf = note.Bookshelf;
                     context.SaveChanges();
                 }
                 catch(Exception)
