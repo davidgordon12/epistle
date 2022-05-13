@@ -187,6 +187,13 @@ a:hover {
         background-color: #a69d96;
     }
 
+#shelf_form {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+}
+
 h6 {
     font-size: larger;
     color: var(--text);

@@ -12,7 +12,7 @@
     @await Html.PartialAsync("_ShelfCreation", new BookshelfModel { Title = "" })
 </div>
 <div id="push_shelf" class="visually-hidden">
-    @await Html.PartialAsync("_PushShelf")
+    @await Html.PartialAsync("_PushShelf", new NoteModel {Id=@Model.Id})
 </div>
 <form class="wrapper">
     <div id="sidenav">
@@ -58,7 +58,6 @@
                         </div>
                     </a>
                     <div class=" m-3 ">
-                        <a onclick="render_push(), fix_text()">SHELF</a>
                         <a href=@Url.Action("DeleteNote", "Note", new { Id = @note.Id })>DEL</a>
                     </div>
                 </div>
@@ -71,6 +70,7 @@
                 <button asp-action="Index" asp-controller="Note"> X </button>
                 <button asp-action="CreateNote" asp-controller="Note"> SAVE </button>
                 <button type="button" onclick="dark_mode()"> THEME </button>
+                <button type="button" onclick="render_push(), fix_text()">SHELF</button>
             </div>
         </div>
         <textarea asp-for=Content id="textarea" spellcheck="false" placeholder="Start your note here..."></textarea>

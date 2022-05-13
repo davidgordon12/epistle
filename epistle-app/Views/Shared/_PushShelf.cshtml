@@ -1,11 +1,20 @@
 ﻿@using EpistleLibrary.Services
+@model EpistleLibrary.Models.NoteModel
 
-<form>
-    <select>
+<script>
+    function pass_id() {
+        document.getElementById('note_to_push').value = '@Model.Id';
+    }
+</script>
+
+<form id="shelf_form" asp-action="AddToShelf" asp-controller="Note">
+    <select asp-for="@Model.Bookshelf.Title">
         @foreach(var bookshelf in BookshelfService.GetBookshelves(@ViewBag.Username))
         {
            <option>@bookshelf.Title</option> 
         }
     </select>
+    <input id="note_to_push" asp-for="@Model.Id" class="visually-hidden" />
     <button>Ok</button>
+    <a href="@Url.Action("Index", "Home")">X</a>
 </form>
