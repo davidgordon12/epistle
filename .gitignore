@@ -370,3 +370,5 @@ FodyWeavers.xsd
 /Migrations
 Data
 Migrations
+.vscode/launch.json
+.vscode/tasks.json
