@@ -23,18 +23,29 @@ namespace EpistleLibrary.Services
             return bookshelves;
         }
 
-        public static void CreateBookshelf(BookshelfModel bookshelf)
+        public static BookshelfModel GetShelf(string title)
         {
             using (EpistleContext context = new())
             {
-                try
+                BookshelfModel bookshelf = context.Bookshelves.Where(x => x.Title == title).FirstOrDefault();
+
+                return bookshelf;
+            }
+        }
+
+        public static string CreateBookshelf(BookshelfModel bookshelf)
+        {
+            using (EpistleContext context = new())
+            {
+                if(context.Bookshelves.Contains(context.Bookshelves.Where(x=>x.Title==bookshelf.Title).FirstOrDefault()))
                 {
-                    context.Entry(bookshelf).State = EntityState.Unchanged;
-                    context.Bookshelves.Add(bookshelf);
-                    context.SaveChanges();
+                    return "Cannot have duplicate bookshelves";
                 }
-                catch (Exception)
-                { }
+
+                context.Entry(bookshelf).State = EntityState.Unchanged;
+                context.Bookshelves.Add(bookshelf);
+                context.SaveChanges();
+                return string.Empty;
             }
         }
 
