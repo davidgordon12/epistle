@@ -1,5 +1,5 @@
 ﻿@using EpistleLibrary.Services
-@model EpistleLibrary.Models.NoteModel
+@using EpistleLibrary.Models
 
 <script>
     function pass_id() {
@@ -7,14 +7,13 @@
     }
 </script>
 
-<form id="shelf_form" asp-action="AddToShelf" asp-controller="Note">
-    <select asp-for="@Model.Bookshelf.Title">
-        @foreach(var bookshelf in BookshelfService.GetBookshelves(@ViewBag.Username))
+<form id="shelf_form">
+    <h5>Which shelf?</h5>
+    <ul>
+        @foreach(BookshelfModel bookshelf in BookshelfService.GetBookshelves(@ViewBag.Username))
         {
-           <option>@bookshelf.Title</option> 
+           <li><a href="@Url.Action("AddToShelf", "Note", new { Id = @Model.Id, Content = bookshelf.Title })">@bookshelf.Title</a></li>
         }
-    </select>
-    <input id="note_to_push" asp-for="@Model.Id" class="visually-hidden" />
-    <button>Ok</button>
-    <a href="@Url.Action("Index", "Home")">X</a>
+    </ul>
+    <a href="@Url.Action("Index", "Home")">Cancel</a>
 </form>

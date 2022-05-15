@@ -1,15 +1,12 @@
 ﻿@using EpistleLibrary.Services
 
-<form id="push_shelf">
-    <select>
+<form id="shelf_form">
+    <h5>Pick a shelf to delete</h5>
+    <ul>
         @foreach(var bookshelf in BookshelfService.GetBookshelves(@ViewBag.Username))
         {
-           <option>@bookshelf.Title</option>
+           <li><a href="@Url.Action("DeleteShelf", "Shelf", new { Title = @bookshelf.Title, Id = @bookshelf.Id })">@bookshelf.Title</a></li>
         }
-    </select>
-        @foreach(var bookshelf in BookshelfService.GetBookshelves(@ViewBag.Username))
-        {
-           <a href="@Url.Action("DeleteShelf", "Shelf", new { Title = @bookshelf.Title, Id = @bookshelf.Id })">DEL</a>
-        }
-    <a href="@Url.Action("Index", "Home")">X</a>
+    </ul>
+    <a id="del_cancel" href="@Url.Action("Index", "Home")">Cancel</a>
 </form>

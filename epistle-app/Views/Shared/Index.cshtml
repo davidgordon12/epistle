@@ -26,6 +26,7 @@
             <div id="bookshelf_title">
                 <h5 id="bookshelf_header">Bookshelves</h5>
                 <a id="new_bookshelf" class="text-decoration-none" onclick="render_shelf()" href="#">+</a>
+                <a id="new_bookshelf" class="text-decoration-none" onclick="render_delete()" href="#" >-</a>
             </div>
             <div id="bookshelf_list">
                 <!-- every account will have an "all notes" bookshelf -->
@@ -34,7 +35,6 @@
                 {
                     <div id="bookshelf_options">
                         <a id="all_notes" class="text-decoration-none" href="">@bookshelf.Title</a>
-                        <a id="all_notes" class="text-decoration-none" href="#" onclick="render_delete()"> DEL </a>
                     </div>
                 }
             </div>
@@ -71,9 +71,9 @@
         <div id="toolbar">
             <div id="toolbar_items">
                 <button asp-action="Index" asp-controller="Note"> X </button>
-                <button asp-action="CreateNote" asp-controller="Note"> SAVE </button>
                 <button type="button" onclick="dark_mode()"> THEME </button>
                 <button type="button" onclick="render_push(), fix_text()">SHELF</button>
+                <button asp-action="CreateNote" asp-controller="Note"> SAVE </button>
             </div>
         </div>
         <textarea asp-for=Content id="textarea" spellcheck="false" placeholder="Start your note here..."></textarea>
