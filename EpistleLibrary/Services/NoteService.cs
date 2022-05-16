@@ -61,6 +61,8 @@ namespace EpistleLibrary.Services
             return note;
         }
 
+        /// <summary>Gets all the notes in a specific bookshelf</summary>
+        /// <returns>The list of notes from the bookshelf</returns>
         public static List<NoteModel> LoadShelf(string title)
         {
             return null;
