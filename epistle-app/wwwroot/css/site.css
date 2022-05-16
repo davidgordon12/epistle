@@ -59,13 +59,6 @@ a:hover {
         display: none;
     }
 
-#shelf_creation {
-    position: absolute;
-    z-index: 1;
-    margin: 150px 30px 30px 30px;
-    width: var(--sidenav);
-}
-
 #shelf_input {
     background-color: #dfdbd9;
     border: none;
@@ -76,9 +69,11 @@ a:hover {
     outline: none;
 }
 
-#shelf_controls {
-    display: flex;
-    flex-direction: row;
+#ok_btn {
+    width: 50px;
+    border: none;
+    background-color: #dfdbd9;
+    color: var(--text);
 }
 
 #head {
@@ -189,7 +184,7 @@ a:hover {
 
 #shelf_form {
     position: absolute;
-    border: 2px solid black;
+    border: 2px solid #524656;
     background-color: var(--secondary);
     width: 300px;
     height: 400px;
