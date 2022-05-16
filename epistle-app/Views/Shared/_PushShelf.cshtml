@@ -15,5 +15,5 @@
            <li><a href="@Url.Action("AddToShelf", "Note", new { Id = @Model.Id, Content = bookshelf.Title })">@bookshelf.Title</a></li>
         }
     </ul>
-    <a href="@Url.Action("Index", "Home")">Cancel</a>
+    <a id="del_cancel" href="@Url.Action("Index", "Home")">Cancel</a>
 </form>
