@@ -5,12 +5,14 @@
     }
 }
 
+// bring up a form like the partial views on center screen
 function show_shelf() {
-
+    // list of bookshelves and + / - buttons
 }
 
+// bring up a form like the partial views on center screen
 function show_notes() {
-
+    // list of notes and delete button
 }
 
 function dark_mode() {
