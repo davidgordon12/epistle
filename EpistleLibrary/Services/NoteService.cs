@@ -65,7 +65,19 @@ namespace EpistleLibrary.Services
         /// <returns>The list of notes from the bookshelf</returns>
         public static List<NoteModel> LoadShelf(string title)
         {
-            return null;
+            List<NoteModel> notes = new List<NoteModel>();
+
+            using (EpistleContext context = new())
+            {
+                foreach (var note in context.Notes.Where(x => x.Bookshelf.Title == title))
+                {
+                    notes.Add(note);
+                }
+            }
+
+            // sort list newest -> oldest
+            notes.Sort((x, y) => DateTime.Compare(y.DateCreated, x.DateCreated));
+            return notes;
         }
 
         /// <summary>Deletes a note from the database with the matching Id</summary>
