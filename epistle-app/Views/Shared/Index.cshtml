@@ -26,12 +26,12 @@
             <div id="bookshelf_title">
                 <h5 id="bookshelf_header">Bookshelves</h5>
                 <a id="new_bookshelf" class="text-decoration-none" onclick="render_shelf()" href="#">+</a>
-                <a id="new_bookshelf" class="text-decoration-none" onclick="render_delete()" href="#" >-</a>
+                <a id="new_bookshelf" class="text-decoration-none" onclick="render_delete()" href="#">-</a>
             </div>
             <div id="bookshelf_list">
                 <!-- every account will have an "all notes" bookshelf -->
                 <a id="all_notes" class="text-decoration-none " href="">All Notes</a>
-                @foreach(var bookshelf in @BookshelfService.GetBookshelves(@ViewBag.Username))
+                @foreach (var bookshelf in @BookshelfService.GetBookshelves(@ViewBag.Username))
                 {
                     <div id="bookshelf_options">
                         <a id="all_notes" class="text-decoration-none" href="">@bookshelf.Title</a>
@@ -78,5 +78,9 @@
         </div>
         <textarea asp-for=Content id="textarea" spellcheck="false" placeholder="Start your note here..."></textarea>
         <input id="note_id" class="visually-hidden" asp-for=Id />
+    </div>
+    <div id="hidden_menu">
+        <button type="button" onclick="show_shelf()" id="toggle_shelf">Shelf</button>
+        <button type="button" onclick="show_notes()" id="toggle_notes">Notes</button>
     </div>
 </form>
