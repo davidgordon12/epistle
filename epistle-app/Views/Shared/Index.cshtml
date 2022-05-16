@@ -9,7 +9,7 @@
     }
 </script>
 <div id="shelf_creation" class="visually-hidden">
-    @await Html.PartialAsync("_ShelfCreation", new BookshelfModel { Title = "" })
+    @await Html.PartialAsync("_AddShelf", new BookshelfModel { Title = "" })
 </div>
 <div id="push_shelf" class="visually-hidden">
     @await Html.PartialAsync("_PushShelf", new NoteModel {Id=@Model.Id})
