@@ -61,6 +61,11 @@ namespace EpistleLibrary.Services
             return note;
         }
 
+        public static List<NoteModel> LoadShelf(string title)
+        {
+            return null;
+        }
+
         /// <summary>Deletes a note from the database with the matching Id</summary>
         public static void DeleteNote(NoteModel note)
         {
