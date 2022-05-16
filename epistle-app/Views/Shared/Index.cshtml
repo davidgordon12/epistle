@@ -17,7 +17,7 @@
 <div id="delete_shelf" class="visually-hidden">
     @await Html.PartialAsync("_DelShelf", new NoteModel {Id=@Model.Id})
 </div>
-<form class="wrapper">
+<form class="wrapper" id="main_form" asp-action="CreateNote" asp-controller="Note">
     <div id="sidenav">
         <div id="head">
             <h6 id="title">Epistle</h6>
