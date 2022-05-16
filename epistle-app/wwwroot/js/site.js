@@ -1,4 +1,12 @@
-﻿function dark_mode() {
+﻿document.onkeydown = (e) => {
+    if (e.ctrlKey && e.key === 's') {
+        document.getElementById('main_form').submit();
+        e.preventDefault();
+    }
+}
+
+
+function dark_mode() {
     document.getElementById('textarea').classList.toggle('dark_mode');
 }
 function render_shelf() {
