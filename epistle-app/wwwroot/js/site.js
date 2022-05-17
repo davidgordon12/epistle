@@ -5,14 +5,12 @@
     }
 }
 
-// bring up a form like the partial views on center screen
 function show_shelf() {
     document.getElementById('mini_shelf').classList.toggle('visually-hidden');
 }
 
-// bring up a form like the partial views on center screen
 function show_notes() {
-    // list of notes and delete button
+    document.getElementById('mini_notelist').classList.toggle('visually-hidden');
 }
 
 function dark_mode() {
