@@ -105,6 +105,10 @@ a:hover {
     font-size: x-large;
 }
 
+#shelf_form_header {
+    background-color: var(--primary-accent);
+}
+
 #bookshelf_list {
     display: flex;
     flex-direction: column;
@@ -207,6 +211,7 @@ a:hover {
         background-color: var(--primary-accent);
         padding-top: 12px;
         text-align: center;
+        margin-bottom: 1px;
     }
 
     #shelf_form > ul {
