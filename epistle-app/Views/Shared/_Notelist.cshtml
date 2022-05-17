@@ -1,4 +1,20 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using EpistleLibrary.Services
+
+<form id="shelf_form">
+    <h5>All your notes</h5>
+    @foreach (var note in NoteService.GetNotes(@ViewBag.Username))
+    {
+        <div id="note_card" onclick="load_text()" class="d-flex justify-content-between">
+            <a class="text-decoration-none" href=@Url.Action("LoadNote", "Note", new { Id = @note.Id })>
+                <div>
+                    <h4>@note.Title</h4>
+                    <h6>@note.DateCreated</h6>
+                </div>
+            </a>
+            <div class=" m-3 ">
+                <a href=@Url.Action("DeleteNote", "Note", new { Id = @note.Id })>DEL</a>
+            </div>
+        </div>
+    }
+    <a id="del_cancel" href="@Url.Action("Index", "Home")">Cancel</a>
+</form>
