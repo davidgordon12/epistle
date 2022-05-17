@@ -1,4 +1,23 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using EpistleLibrary.Services
+@using EpistleLibrary.Models
+
+<form id="shelf_form">
+    <div id ="shelf_form_header">
+        <div id="bookshelf_title">
+            <h5 id="bookshelf_header">Bookshelves</h5>
+            <a id="new_bookshelf" class="text-decoration-none" onclick="render_shelf()" href="#">+</a>
+            <a id="new_bookshelf" class="text-decoration-none" onclick="render_delete()" href="#">-</a>
+        </div>
+    </div>
+    <div id="bookshelf_list">
+        <!-- every account will have an "all notes" bookshelf -->
+        <a id="all_notes" class="text-decoration-none " href="">All Notes</a>
+        @foreach (var bookshelf in @BookshelfService.GetBookshelves(@ViewBag.Username))
+        {
+            <div id="bookshelf_options">
+                <a id="all_notes" class="text-decoration-none" href="">@bookshelf.Title</a>
+            </div>
+        }
+    </div>
+    <a id="del_cancel" href="@Url.Action("Index", "Home")">Cancel</a>
+</form>
