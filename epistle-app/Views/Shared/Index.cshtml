@@ -8,6 +8,13 @@
         document.getElementById('note_id').value = '@Model.Id';
     }
 </script>
+
+<div id="mini_shelf" class="visually-hidden">
+    @await Html.PartialAsync("_Sidenav")
+</div>
+<div id="mini_notelist" class="visually-hidden">
+    @await Html.PartialAsync("_Notelist")
+</div>
 <div id="shelf_creation" class="visually-hidden">
     @await Html.PartialAsync("_AddShelf", new BookshelfModel { Title = "" })
 </div>
@@ -17,6 +24,7 @@
 <div id="delete_shelf" class="visually-hidden">
     @await Html.PartialAsync("_DelShelf", new NoteModel {Id=@Model.Id})
 </div>
+
 <form class="wrapper" id="main_form" asp-action="CreateNote" asp-controller="Note">
     <div id="sidenav">
         <div id="head">
