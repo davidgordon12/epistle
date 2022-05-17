@@ -7,7 +7,7 @@
 
 // bring up a form like the partial views on center screen
 function show_shelf() {
-    // list of bookshelves and + / - buttons
+    document.getElementById('mini_shelf').classList.toggle('visually-hidden');
 }
 
 // bring up a form like the partial views on center screen
