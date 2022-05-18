@@ -48,9 +48,15 @@ namespace epistle_app.Controllers
 
         public IActionResult AddToShelf(NoteModel note)
         {
-            NoteService.AddToShelf(note);
+           NoteService.AddToShelf(note);
 
             return RedirectToAction("Index");
+        }
+
+        public IActionResult LoadShelf(string title)
+        {
+            List<NoteModel> notes = NoteService.LoadShelf(title);
+            return RedirectToAction("Index", notes);
         }
     }
 }
