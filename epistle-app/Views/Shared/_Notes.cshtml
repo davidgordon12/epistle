@@ -1,4 +1,5 @@
 ﻿@using EpistleLibrary.Services
+@model List<EpistleLibrary.Models.NoteModel>
 
 <div id="notelist">
     <div id="searchbar">
@@ -7,7 +8,7 @@
     </div>
     <div id="notes">
         <!-- Get all the user's notes-->
-        @foreach (var note in NoteService.GetNotes(@ViewBag.Username))
+        @foreach (var note in Model)
         {
             <div id="note_card" onclick="load_text()" class="d-flex justify-content-between">
                 <a class="text-decoration-none" href=@Url.Action("LoadNote", "Note", new { Id = @note.Id })>
