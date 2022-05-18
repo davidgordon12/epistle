@@ -53,7 +53,27 @@
         </div>
     </div>
     <div id="notelist">
-        @await Html.PartialAsync("_Notes")
+        <div id="searchbar">
+            <h6 class="text-center">All Notes</h6>
+            <input type="text" id="search" placeholder="Type to search..." />
+        </div>
+        <div id="notes">
+            <!-- Get all the user's notes-->
+            @foreach (var note in NoteService.GetNotes(@ViewBag.Username))
+            {
+                <div id="note_card" onclick="load_text()" class="d-flex justify-content-between">
+                    <a class="text-decoration-none" href=@Url.Action("LoadNote", "Note", new { Id = @note.Id })>
+                        <div>
+                            <h4>@note.Title</h4>
+                            <h6>@note.DateCreated</h6>
+                        </div>
+                    </a>
+                    <div class=" m-3 ">
+                        <a href=@Url.Action("DeleteNote", "Note", new { Id = @note.Id })>DEL</a>
+                    </div>
+                </div>
+            }
+        </div>
     </div>
     <div id="editor">
         <div id="toolbar">
