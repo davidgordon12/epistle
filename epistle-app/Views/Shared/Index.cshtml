@@ -42,7 +42,7 @@
                 @foreach (var bookshelf in @BookshelfService.GetBookshelves(@ViewBag.Username))
                 {
                     <div id="bookshelf_options">
-                        <a id="all_notes" class="text-decoration-none" href="">@bookshelf.Title</a>
+                        <a id="all_notes" class="text-decoration-none" onclick="show_note()" href="@Url.Action("LoadShelf", "Note", new { Title = bookshelf.Title })"></a>
                     </div>
                 }
             </div>
