@@ -1,20 +1,141 @@
 ﻿@using EpistleLibrary.Services
 @model List<EpistleLibrary.Models.NoteModel>
 
+<style>
+    :root {
+        /* COLORS */
+        --primary: #353635;
+        --secondary: #B2AAA4;
+        --primary-accent: #91867E;
+        --secondary-accent: #353635;
+        --note: #4b4c4b;
+        --text: #413535;
+    }
+
+
+    html, body, main {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        font-family: sans-serif;
+        background: hsla(20, 9%, 86%, 1);
+        background: linear-gradient(135deg, hsla(20, 9%, 86%, 1) 0%, hsla(25, 8%, 53%, 1) 100%);
+        background: -moz-linear-gradient(135deg, hsla(20, 9%, 86%, 1) 0%, hsla(25, 8%, 53%, 1) 100%);
+        background: -webkit-linear-gradient(135deg, hsla(20, 9%, 86%, 1) 0%, hsla(25, 8%, 53%, 1) 100%);
+        filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#DFDBD9", endColorstr="#91867E", GradientType=1 );
+    }
+
+    a {
+        color: var(--text);
+        text-decoration: none;
+    }
+
+        a:hover {
+            color: black;
+        }
+
+    #note_card {
+        background-color: #c2bbb7;
+        width: var(--notelist);
+        height: 100px;
+        border: solid;
+        border-width: 1px;
+        border-color: var(--secondary);
+        display: flex;
+        justify-content: space-between;
+    }
+
+        #note_card:hover {
+            background-color: #a69d96;
+        }
+
+    #shelf_form {
+        position: absolute;
+        border: 2px solid #524656;
+        background-color: var(--secondary);
+        width: 300px;
+        height: 400px;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow-y: scroll;
+        scrollbar-width: none;
+    }
+
+        #shelf_form::-webkit-scrollbar {
+            display: none;
+        }
+
+        #shelf_form > h5 {
+            font-size: x-large;
+            height: 50px;
+            margin-top: -5px;
+            background-color: var(--primary-accent);
+            padding-top: 12px;
+            text-align: center;
+            margin-bottom: 1px;
+        }
+
+        #shelf_form > ul {
+            text-align: center;
+            list-style: none;
+            padding-right: 2rem;
+        }
+
+    #del_cancel {
+        background-color: var(--primary-accent);
+        position: absolute;
+        bottom: 0;
+        font-size: larger;
+        width: 300px;
+        text-align: center;
+    }
+
+    h6 {
+        font-size: larger;
+        color: var(--text);
+        font-weight: 300;
+        margin-top: 3px;
+    }
+
+    h5 {
+        font-weight: 300;
+        font-size: larger;
+        color: var(--text);
+    }
+
+    h4 {
+        font-weight: 300;
+        font-size: large;
+        color: var(--text);
+        margin-top: 3px;
+    }
+
+    #info {
+        padding-top: 10px;
+        padding-inline: 20px;
+    }
+
+    #_del_btn {
+        margin-top: 40px;
+        font-weight: normal;
+        margin-right: 20px;
+    }
+</style>
+
 <form id="shelf_form">
-    <h5>All your notes</h5>
+    <h5>Bookshelf</h5>
     @foreach (var note in Model)
     {
         <div id="note_card" onclick="load_text()" class="d-flex justify-content-between">
-            <a class="text-decoration-none" href=@Url.Action("LoadNote", "Note", new { Id = @note.Id })>
-                <div>
+            <a id="_content" class="text-decoration-none" href=@Url.Action("LoadNote", "Note", new { Id = @note.Id })>
+                <div id="info">
                     <h4>@note.Title</h4>
                     <h6>@note.DateCreated</h6>
                 </div>
+                <a id="_del_btn" href=@Url.Action("DeleteNote", "Note", new { Id = @note.Id })>DEL</a>
             </a>
-            <div class=" m-3 ">
-                <a href=@Url.Action("DeleteNote", "Note", new { Id = @note.Id })>DEL</a>
-            </div>
         </div>
     }
     <a id="del_cancel" href="@Url.Action("Index", "Home")">Cancel</a>
