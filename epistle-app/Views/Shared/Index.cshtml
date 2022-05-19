@@ -24,6 +24,9 @@
 <div id="delete_shelf" class="visually-hidden">
     @await Html.PartialAsync("_DelShelf", new NoteModel {Id=@Model.Id})
 </div>
+<div id="shelf" class="visually-hidden">
+    @await Html.PartialAsync("_Shelf", new List<NoteModel> { })
+</div>
 
 <form class="wrapper" id="main_form" asp-action="CreateNote" asp-controller="Note">
     <div id="sidenav">
@@ -39,10 +42,10 @@
             <div id="bookshelf_list">
                 <!-- every account will have an "all notes" bookshelf -->
                 <a id="all_notes" class="text-decoration-none " href="">All Notes</a>
-                @foreach (var bookshelf in @BookshelfService.GetBookshelves(@ViewBag.Username))
+                @foreach (var bookshelf in BookshelfService.GetBookshelves(@ViewBag.Username))
                 {
                     <div id="bookshelf_options">
-                        <a id="all_notes" class="text-decoration-none" onclick="show_note()" href="@Url.Action("LoadShelf", "Note", new { Title = bookshelf.Title })"></a>
+                        <a id="all_notes" class="text-decoration-none" href="@Url.Action("LoadShelf", "Note", new { Title = bookshelf.Title })">@bookshelf.Title</a>
                     </div>
                 }
             </div>

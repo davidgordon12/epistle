@@ -56,7 +56,7 @@ namespace epistle_app.Controllers
         public IActionResult LoadShelf(string title)
         {
             List<NoteModel> notes = NoteService.LoadShelf(title);
-            return RedirectToAction("Index", notes);
+            return PartialView("_Shelf", notes);
         }
     }
 }
