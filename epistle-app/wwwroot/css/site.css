@@ -114,6 +114,7 @@ a:hover {
     flex-direction: column;
     margin-top: 25px;
     margin-left: 30px;
+    margin-bottom: 80px;
 }
 
 #bookshelf_options {
