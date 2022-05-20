@@ -5,6 +5,19 @@
     }
 }
 
+let search = document.getElementById('search');
+let note_title = document.getElementById('note_title');
+let note_info = document.getElementById('note_info');
+
+search.onkeydown = (e) => {
+    if(e.code === 'Enter' || e.key === 13)
+    {
+        e.preventDefault();
+    }
+
+    document.getElementById('note_info').classList.toggle('visually-hidden');
+}
+
 function show_shelf() {
     document.getElementById('mini_shelf').classList.toggle('visually-hidden');
 }
