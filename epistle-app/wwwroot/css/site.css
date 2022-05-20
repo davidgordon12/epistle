@@ -223,10 +223,11 @@ a:hover {
 
 #del_cancel {
     background-color: var(--primary-accent);
-    position: absolute;
     bottom: 0;
     font-size: larger;
     width: 300px;
+    position: relative;
+    display: inline-block;
     text-align: center;
 }
 

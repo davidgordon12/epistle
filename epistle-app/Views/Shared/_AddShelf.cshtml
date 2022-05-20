@@ -1,5 +1,16 @@
 ﻿@model EpistleLibrary.Models.BookshelfModel
 
+<style>
+    #_del_cancel {
+    background-color: var(--primary-accent);
+    bottom: 0;
+    font-size: larger;
+    width: 300px;
+    position: absolute;
+    text-align: center;
+}
+</style>
+
 <div id="add_new_shelf">
 <form id="shelf_form" asp-action="CreateShelf" asp-controller="Shelf">
     <h5>Enter a shelf name</h5>
@@ -7,6 +18,6 @@
         <li><input id="shelf_input" asp-for="Title" /></li>
         <li class="p-4"><input type="submit" value="Ok" id="ok_btn"/></li>
     </ul>
-    <a id="del_cancel" href="@Url.Action("Index", "Home")">Cancel</a>
+    <a id="_del_cancel" href="@Url.Action("Index", "Home")">Cancel</a>
 </form>
 </div>
