@@ -270,6 +270,41 @@ h4 {
         outline:none;
     }
 
+#cancelBtn {
+    background: none;
+    border: none;
+    background-image: url(../imgs/cancel-svgrepo-com.svg);
+    width: 35px;
+    height: 35px;
+    margin-inline: 35px;
+}
+
+#saveBtn {
+    background: none;
+    border: none;
+    background-image: url(../imgs/save-svgrepo-com.svg);
+    width: 35px;
+    height: 35px;
+    margin-inline: 35px;
+}
+
+#themeBtn {
+    background: none;
+    border: none;
+    background-image: url(../imgs/idea-svgrepo-com.svg);
+    width: 35px;
+    height: 35px;
+    margin-inline: 35px;
+}
+
+#shelfBtn {
+    background: none;
+    border: none;
+    background-image: url(../imgs/bookshelf-svgrepo-com.svg);
+    width: 35px;
+    height: 35px;
+    margin-inline: 35px;
+}
 
 /* EDITOR */
 #editor {
@@ -286,7 +321,7 @@ h4 {
 #toolbar_items {
     display: flex;
     justify-content: center;
-
+    padding-top: 5px;
 }
 
 .toolbar_button {

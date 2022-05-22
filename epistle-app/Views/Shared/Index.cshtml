@@ -83,15 +83,16 @@
     <div id="editor">
         <div id="toolbar">
             <div id="toolbar_items">
-                <button asp-action="Index" asp-controller="Note"> X </button>
-                <button type="button" onclick="dark_mode()"> THEME </button>
-                <button type="button" onclick="render_push(), fix_text()">SHELF</button>
-                <button asp-action="CreateNote" asp-controller="Note"> SAVE </button>
+                <button asp-action="CreateNote" asp-controller="Note" id="saveBtn"></button>
+                <button type="button" onclick="render_push(), fix_text()" id="shelfBtn"></button>
+                <button asp-action="Index" asp-controller="Note" id="cancelBtn"></button>
+                <button type="button" onclick="dark_mode()" id="themeBtn"></button>
             </div>
         </div>
         <textarea asp-for=Content id="textarea" spellcheck="false" placeholder="Start your note here..."></textarea>
         <input id="note_id" class="visually-hidden" asp-for=Id />
     </div>
+    
     <div id="hidden_menu">
         <button type="button" onclick="show_shelf()" id="toggle_shelf">Shelf</button>
         <button type="button" onclick="show_notes()" id="toggle_notes">Notes</button>
