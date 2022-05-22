@@ -5,17 +5,22 @@
     }
 }
 
-let search = document.getElementById('search');
-let note_title = document.getElementById('note_title');
-let note_info = document.getElementById('note_info');
-
-search.onkeydown = (e) => {
-    if(e.code === 'Enter' || e.key === 13)
-    {
-        e.preventDefault();
+function update_search() {
+    console.log("hrer");
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("notes");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
     }
-
-    document.getElementById('note_info').classList.toggle('visually-hidden');
 }
 
 function show_shelf() {
