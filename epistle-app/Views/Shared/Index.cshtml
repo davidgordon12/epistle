@@ -58,27 +58,29 @@
     <div id="notelist">
         <div id="searchbar">
             <h6 class="text-center">All Notes</h6>
-            <input type="text" id="search" placeholder="Type to search..." />
+            <input autocomplete="" type="text" id="search" onkeyup="update_search()" placeholder="Type to search..." />
         </div>
-        <div id="notes">
+        <ul id="notes">
             <!-- Get all the user's notes-->
             @foreach (var note in NoteService.GetNotes(@ViewBag.Username))
             {
-                <div id="note_info">
-                    <div id="note_card" onclick="load_text()">
-                        <a class="text-decoration-none" href=@Url.Action("LoadNote", "Note", new { Id = @note.Id })>
-                            <div>
-                                <h4 id="note_title">@note.Title</h4>
-                                <h6>@note.DateCreated</h6>
+                <li>
+                    <div id="note_info">
+                        <div id="note_card" onclick="load_text()">
+                            <a class="text-decoration-none" href=@Url.Action("LoadNote", "Note", new { Id = @note.Id })>
+                                <div>
+                                    <h4 id="note_title">@note.Title</h4>
+                                    <h6>@note.DateCreated</h6>
+                                </div>
+                            </a>
+                            <div class=" m-3 ">
+                                <a href=@Url.Action("DeleteNote", "Note", new { Id = @note.Id })>DEL</a>
                             </div>
-                        </a>
-                        <div class=" m-3 ">
-                            <a href=@Url.Action("DeleteNote", "Note", new { Id = @note.Id })>DEL</a>
                         </div>
                     </div>
-                </div>
+                </li>
             }
-        </div>
+        </ul>
     </div>
     <div id="editor">
         <div id="toolbar">
@@ -92,7 +94,7 @@
         <textarea asp-for=Content id="textarea" spellcheck="false" placeholder="Start your note here..."></textarea>
         <input id="note_id" class="visually-hidden" asp-for=Id />
     </div>
-    
+
     <div id="hidden_menu">
         <button type="button" onclick="show_shelf()" id="toggle_shelf">Shelf</button>
         <button type="button" onclick="show_notes()" id="toggle_notes">Notes</button>
