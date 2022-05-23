@@ -248,8 +248,13 @@ li {
         font-size: large;
     }
 
+#note_date {
+    font-size: large;
+    padding-top: 6px;
+}
+
 h6 {
-    font-size: larger;
+    font-size: large;
     color: var(--text);
 }
 
@@ -353,6 +358,7 @@ textarea {
     resize: none;
     scrollbar-width: none;
     font-size: large;
+    padding-right: 120px;
 }
 
     textarea:focus {
@@ -390,7 +396,11 @@ textarea {
 
 /* LAYOUT */ 
 @media screen and (max-width: 1200px) {
-    div #sidenav {
+    div#sidenav {
+        display: none;
+    }
+
+    div#badge {
         display: none;
     }
 
@@ -426,6 +436,10 @@ textarea {
     div#editor {
         grid-column: 3 span;
         width: 102vw;
+    }
+
+    textarea#textarea {
+        padding-right: 40px;
     }
 
     #toggle_notes {

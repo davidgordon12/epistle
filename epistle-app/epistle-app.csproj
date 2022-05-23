@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>epistle_app</RootNamespace>
     <ApplicationIcon>wwwroot\epistle.ico</ApplicationIcon>
+    <UserSecretsId>9181114c-7436-4dde-bb9a-966acb309cd8</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,10 +22,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\EpistleLibrary\EpistleLibrary.csproj" />
   </ItemGroup>
 
 </Project>
