@@ -9,3 +9,5 @@ Take your notes with you anywhere, wherever you are, whatever device.
 
 
 ### Built with ASP.NET MVC and EntityFramework Core
+
+### Try it out at https://epistle.azurewebsites.net
